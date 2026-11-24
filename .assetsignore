@@ -1,0 +1,9 @@
+# Files in the repo that must never be served publicly
+.git
+.vscode
+.gitignore
+.assetsignore
+wrangler.jsonc
+*.pptx
+*.docx
+*.pdf
