@@ -1,6 +1,6 @@
 {
   // Static site served by Cloudflare Workers (assets only, no server code)
-  "name": "grateful-marketing-site",
+  "name": "grateful-solutions",
   "compatibility_date": "2025-11-01",
   "assets": {
     "directory": "."
