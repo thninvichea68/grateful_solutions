@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
+  <!-- smoke -->
+  <circle cx="160" cy="70" r="20"/>
+  <circle cx="206" cy="44" r="13"/>
+  <!-- chimney -->
+  <rect x="104" y="104" width="56" height="200" rx="10"/>
+  <!-- saw-tooth hall with three windows cut out, corners softened by a matching stroke -->
+  <path fill-rule="evenodd" stroke="#000" stroke-width="16" stroke-linejoin="round"
+        d="M88 432V276L200 212V276L312 212V276L424 212V432ZM128 320H192V384H128ZM232 320H296V384H232ZM336 320H400V384H336Z"/>
+</svg>

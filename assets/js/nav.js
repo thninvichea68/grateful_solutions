@@ -6,15 +6,17 @@
   const ddBtn = dd.querySelector('button');
   const desktop = window.matchMedia('(min-width: 861px)');
 
-  // Navy once scrolled; shown while scrolling down, tucked away while scrolling up
+  // Navy once scrolled; tucked away while scrolling down, shown again while scrolling up
   let lastY = window.scrollY;
   function onScroll() {
     const y = window.scrollY;
-    nav.classList.toggle('is-scrolled', y > 10);
+    // during a page transition (app.js) the bar stays solid and visible over both pages
+    const transitioning = document.documentElement.classList.contains('is-transitioning');
+    nav.classList.toggle('is-scrolled', y > 10 || transitioning);
     const menuOpen = nav.classList.contains('is-open') || dd.classList.contains('is-open');
-    if (y < 80 || menuOpen) nav.classList.remove('is-hidden');
-    else if (y > lastY + 4) nav.classList.remove('is-hidden');   // scrolling down: show
-    else if (y < lastY - 4) nav.classList.add('is-hidden');      // scrolling up: hide
+    if (y < 80 || menuOpen || transitioning) nav.classList.remove('is-hidden');
+    else if (y > lastY + 4) nav.classList.add('is-hidden');      // scrolling down: hide
+    else if (y < lastY - 4) nav.classList.remove('is-hidden');   // scrolling up: show
     if (Math.abs(y - lastY) > 4) lastY = y;
   }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -29,7 +31,11 @@
 
   function buildMegaTl() {
     mega.classList.add('mega--js');
-    return gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } })
+    return gsap.timeline({
+      paused: true, defaults: { ease: 'power3.out' },
+      // Bar keeps its navy background until the panel has fully wiped away
+      onReverseComplete: () => nav.classList.remove('has-mega'),
+    })
       .set(mega, { autoAlpha: 1 })
       .fromTo(mega, { clipPath: 'inset(0% 0% 100% 0%)' },
         { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power4.inOut' }, 0)
@@ -50,13 +56,21 @@
     megaTl = null;
     mega.classList.remove('mega--js');
     gsap.set(megaParts, { clearProps: 'all' });
+    nav.classList.toggle('has-mega', dd.classList.contains('is-open'));
   });
 
+  let megaOffTimer;
   function setDropdown(open) {
     if (open === dd.classList.contains('is-open')) return;
     dd.classList.toggle('is-open', open);
     ddBtn.setAttribute('aria-expanded', String(open));
-    if (!canAnimate || !desktop.matches) return;
+    clearTimeout(megaOffTimer);
+    if (open) nav.classList.add('has-mega');
+    if (!canAnimate || !desktop.matches) {
+      // No GSAP: wait out the CSS fade (.25s) before dropping the navy bar
+      if (!open) megaOffTimer = setTimeout(() => nav.classList.remove('has-mega'), 260);
+      return;
+    }
     if (!megaTl) megaTl = buildMegaTl();
     if (open) megaTl.timeScale(1).play();
     else megaTl.timeScale(1.8).reverse();
@@ -68,17 +82,26 @@
   dd.addEventListener('mouseleave', () => { if (desktop.matches) closeTimer = setTimeout(() => setDropdown(false), 180); });
   document.addEventListener('click', (e) => { if (!dd.contains(e.target)) setDropdown(false); });
 
-  toggle.addEventListener('click', () => {
-    const open = !nav.classList.contains('is-open');
+  // Phone menu: full-height panel slides in from the right (CSS); the page behind is frozen while it's open
+  function setMenu(open) {
     nav.classList.toggle('is-open', open);
+    document.documentElement.classList.toggle('menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (window.lenis) open ? window.lenis.stop() : window.lenis.start();
+    if (!open) setDropdown(false);
+  }
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+  // Tapping a link closes the panel (matters for same-page links like Home on the home page)
+  nav.querySelector('.nav__links').addEventListener('click', (e) => {
+    if (e.target.closest('a') && nav.classList.contains('is-open')) setMenu(false);
   });
+  // Rotating or resizing up to desktop: drop the phone menu state
+  desktop.addEventListener('change', (e) => { if (e.matches && nav.classList.contains('is-open')) setMenu(false); });
 
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     setDropdown(false);
-    nav.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
+    if (nav.classList.contains('is-open')) setMenu(false);
   });
 })();

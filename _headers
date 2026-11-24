@@ -1,0 +1,12 @@
+# Browser caching rules (read by Cloudflare Pages and Netlify)
+
+# Fonts never change: cache for a year
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images: cache for 30 days (rename a file if you replace it and need it to update immediately)
+/assets/img/*
+  Cache-Control: public, max-age=2592000
+
+/assets/arrow.svg
+  Cache-Control: public, max-age=2592000

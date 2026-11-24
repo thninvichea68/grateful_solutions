@@ -7,13 +7,18 @@
 <meta name="description" content="Customs clearance through Cambodia&rsquo;s national single window, with trucking from port to factory gate.">
 <link rel="icon" href="assets/img/logo-color.png">
 <link rel="preload" href="assets/fonts/GSCompressed-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/hero-deep-3200.webp" as="image" fetchpriority="high" media="(min-width: 861px)">
+<link rel="preload" href="assets/img/hero-deep-2400.webp" as="image" fetchpriority="high" media="(max-width: 860px)">
+<script>/* hide the intro pieces until the page scripts take over; safety timeout if scripts fail */if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('titles-pending');setTimeout(function(){document.documentElement.classList.remove('titles-pending')},3000)}</script>
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 </head>
 <body>
 <header class="nav" id="nav">
   <a href="#" class="nav__logo" aria-label="Grateful Solutions Cambodia — home">
-    <img class="logo--light" src="assets/img/logo-light.png" alt="Grateful Solutions Cambodia Co., Ltd">
-    <img class="logo--dark" src="assets/img/logo-dark.png" alt="Grateful Solutions Cambodia Co., Ltd">
+    <img class="logo--light" src="assets/img/logo-light.webp" alt="Grateful Solutions Cambodia Co., Ltd">
+    <img class="logo--dark" src="assets/img/logo-dark.webp" alt="Grateful Solutions Cambodia Co., Ltd">
   </a>
 
   <ul class="nav__links" id="nav-links">
@@ -28,22 +33,27 @@
       </button>
       <div class="mega" id="services-menu">
         <div class="mega__intro">
-        <p class="mega__title">Customs, handling and trucking, handled by one team</p>
+        <p class="mega__title">Customs, permits, handling and trucking, handled by one team</p>
         <a class="mega__all" href="services/">View all services</a>
       </div>
         <ul class="mega__cards">
           <li><a class="mega__card" href="services/customs-clearance/">
-            <img src="assets/img/customs-clearance.webp" alt="" loading="lazy">
+            <img src="assets/img/customs-clearance-2.webp" alt="" loading="lazy">
             <span class="mega__label">Customs clearance</span>
             <span class="btn btn--cyan btn--round" aria-hidden="true"><img src="assets/arrow.svg" alt=""><img src="assets/arrow.svg" alt=""></span>
           </a></li>
           <li><a class="mega__card" href="services/import-export-handling/">
-            <img src="assets/img/import-export-handling.jpg" alt="" loading="lazy">
+            <img src="assets/img/import-export-handling-port.webp" alt="" loading="lazy">
             <span class="mega__label">Import &amp; export handling</span>
             <span class="btn btn--cyan btn--round" aria-hidden="true"><img src="assets/arrow.svg" alt=""><img src="assets/arrow.svg" alt=""></span>
           </a></li>
+          <li><a class="mega__card" href="services/permit-application/">
+            <img src="assets/img/permit-application.webp" alt="" loading="lazy">
+            <span class="mega__label">Permit application</span>
+            <span class="btn btn--cyan btn--round" aria-hidden="true"><img src="assets/arrow.svg" alt=""><img src="assets/arrow.svg" alt=""></span>
+          </a></li>
           <li><a class="mega__card" href="services/port-to-factory-trucking/">
-            <img src="assets/img/hero.jpg" alt="" loading="lazy">
+            <img src="assets/img/hero.webp" alt="" loading="lazy">
             <span class="mega__label">Port-to-factory trucking</span>
             <span class="btn btn--cyan btn--round" aria-hidden="true"><img src="assets/arrow.svg" alt=""><img src="assets/arrow.svg" alt=""></span>
           </a></li>
@@ -68,6 +78,9 @@
   </div>
 </header>
 
+<div data-transition="wrapper">
+<div data-transition="container" data-namespace="home">
+
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__parallax">
     <div class="hero__bg" role="img" aria-label="Refrigerated truck driving along a mountain highway at sunrise"></div>
@@ -90,6 +103,7 @@
           <img src="assets/arrow.svg" alt="">
         </a>
       </div>
+      <a href="tel:+85598484441" class="btn btn--light hero__call">Call (855) 98-484-441</a>
     </div>
   </div>
 
@@ -122,21 +136,46 @@
 <section class="about" id="about" aria-labelledby="about-eyebrow">
   <p class="about__eyebrow" id="about-eyebrow">Who we are</p>
   <p class="about__text" id="about-text">
-    At <span class="accent">Grateful Solutions</span>, we believe a production line should never wait for paperwork. Behind every container is a factory, and behind every factory are workers waiting for the fabric to arrive.
+    At <span class="accent">Grateful Solutions</span>, we believe a production line should never wait for paperwork. Behind every container is a factory, and behind every factory are workers waiting for the cargo to arrive.
   </p>
-  <div class="about__media">
-    <figure class="about__frame about__frame--a">
-      <img src="assets/img/customs.jpg" alt="Black truck with a white trailer on an open road" loading="lazy">
-    </figure>
-    <figure class="about__frame about__frame--b">
-      <img src="assets/img/about-image-2.jpg" alt="Warehouse with stacked cartons, shelving and forklifts" loading="lazy">
-    </figure>
-    <figure class="about__frame about__frame--c">
-      <img src="assets/img/cargo.jpg" alt="Hand touching a digital logistics network of trucks and warehouses" loading="lazy">
-    </figure>
-    <figure class="about__frame about__frame--d">
-      <img src="assets/img/about-image-3.jpg" alt="Truck carrying a blue shipping container across the desert" loading="lazy">
-    </figure>
+</section>
+
+<section class="fields" id="fields" aria-labelledby="fields-title">
+  <div class="fields__pin">
+    <p class="about__eyebrow">What we do</p>
+    <h2 class="fields__title" id="fields-title">One field, start to finish.</h2>
+
+    <div class="fields__stage" id="fields-stage">
+      <video class="fields__img" id="fields-video" poster="assets/img/truck.webp" muted playsinline preload="auto" aria-hidden="true">
+        <!-- Encoded with a keyframe every 8 frames so scroll scrubbing can jump to any frame quickly -->
+        <source src="assets/video/truck-scrub.webm" type="video/webm">
+        <source src="assets/video/truck-scrub.mp4" type="video/mp4">
+      </video>
+      <div class="fields__grade" aria-hidden="true"></div>
+      <div class="fields__slides">
+        <article class="fields__item">
+          <span class="fields__num" aria-hidden="true">01</span>
+          <h3 class="fields__name">Customs<br>Clearance</h3>
+          <p class="fields__text">Send us your shipment documents and we take it from there, from the first document check to the release of your container.</p>
+        </article>
+        <article class="fields__item">
+          <span class="fields__num" aria-hidden="true">02</span>
+          <h3 class="fields__name">Import &amp; Export<br>Handling</h3>
+          <p class="fields__text">Permits, certificates of origin and your CDC master list, prepared and filed through the National Single Window.</p>
+        </article>
+        <article class="fields__item">
+          <span class="fields__num" aria-hidden="true">03</span>
+          <h3 class="fields__name">Permit<br>Application</h3>
+          <p class="fields__text">Import and export permits from the right ministry, applied for through the National Single Window before your goods arrive.</p>
+        </article>
+        <article class="fields__item">
+          <span class="fields__num" aria-hidden="true">04</span>
+          <h3 class="fields__name">Port-to-Factory<br>Trucking</h3>
+          <p class="fields__text">Once released, your 20' or 40' container is trucked straight from the port to your factory gate.</p>
+        </article>
+      </div>
+      <div class="fields__progress" aria-hidden="true"><span class="fields__bar" id="fields-bar"></span></div>
+    </div>
   </div>
 </section>
 
@@ -239,37 +278,415 @@
 </section>
 
 <section class="delays" aria-labelledby="delays-title">
-  <img class="delays__crate" src="assets/img/blue-container-with-crane.png" alt="" aria-hidden="true" loading="lazy">
   <p class="about__eyebrow">Why choose us</p>
   <h2 class="delays__title" id="delays-title">Delays stop being a surprise</h2>
-  <div class="delays__grid">
-    <article class="delay-card delay-card--teal">
-      <span class="delay-card__icon" aria-hidden="true">
-        <img src="assets/img/check.svg" alt="">
-      </span>
-      <div>
-        <h3>Checked Before Filing</h3>
-        <p>Every HTS code, weight and value checked before customs sees it</p>
+  <!-- Stacked cards: photo | number + title | copy. Each card sticks a little lower than the one
+       before it, so on scroll the next card slides up over the last and leaves a strip of it showing;
+       home.js then shrinks and dims the covered cards so the stack reads as a deck. -->
+  <ol class="delays__list">
+    <li class="delay-row" style="--i: 0">
+      <div class="delay-row__card">
+        <div class="delay-row__media" aria-hidden="true">
+          <!-- clipboard with a tick: checked before filing -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="2" width="8" height="4" rx="1"/>
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+            <path d="m9 14 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="delay-row__head">
+          <span class="delay-row__num" aria-hidden="true">01 / 03</span>
+          <h3>Checked Before Filing</h3>
+        </div>
+        <p class="delay-row__text">Every HTS code, weight and value checked before customs sees it</p>
+        <span class="delay-row__ghost" aria-hidden="true">01</span>
       </div>
-    </article>
-    <article class="delay-card delay-card--dark">
-      <span class="delay-card__icon" aria-hidden="true">
-        <img src="assets/img/alert.svg" alt="">
-      </span>
-      <div>
-        <h3>Early Hold Alerts</h3>
-        <p>Inspections, missing documents and low CDC balances flagged before they cost you a day</p>
+    </li>
+    <li class="delay-row" style="--i: 1">
+      <div class="delay-row__card">
+        <div class="delay-row__media" aria-hidden="true">
+          <!-- ringing bell: early hold alerts -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+            <path d="M4 2C2.8 3.7 2 5.7 2 8"/>
+            <path d="M22 8c0-2.3-.8-4.3-2-6"/>
+          </svg>
+        </div>
+        <div class="delay-row__head">
+          <span class="delay-row__num" aria-hidden="true">02 / 03</span>
+          <h3>Early Hold Alerts</h3>
+        </div>
+        <p class="delay-row__text">Inspections, missing documents and low CDC balances flagged before they cost you a day</p>
+        <span class="delay-row__ghost" aria-hidden="true">02</span>
       </div>
-    </article>
-    <article class="delay-card delay-card--glass">
-      <span class="delay-card__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 20H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9z"/><path d="M14 20v-5a1 1 0 0 1 1-1h4M8.5 8.5h7M8.5 12h4"/></svg>
-      </span>
-      <div>
-        <h3>One Record per Shipment</h3>
-        <p>Declaration, documents and invoices in one place, no more chasing emails</p>
+    </li>
+    <li class="delay-row" style="--i: 2">
+      <div class="delay-row__card">
+        <div class="delay-row__media" aria-hidden="true">
+          <!-- stacked documents: one record per shipment -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/>
+            <path d="M15 2v5h5"/>
+            <path d="M4 6v14a2 2 0 0 0 2 2h10"/>
+            <path d="M10 11h6M10 14h4"/>
+          </svg>
+        </div>
+        <div class="delay-row__head">
+          <span class="delay-row__num" aria-hidden="true">03 / 03</span>
+          <h3>One Record per Shipment</h3>
+        </div>
+        <p class="delay-row__text">Declaration, documents and invoices in one place, no more chasing emails</p>
+        <span class="delay-row__ghost" aria-hidden="true">03</span>
       </div>
-    </article>
+    </li>
+  </ol>
+</section>
+
+<section class="pm" id="ports" aria-labelledby="pm-title">
+  <div class="pm__head">
+    <div>
+      <p class="about__eyebrow">Port locations</p>
+      <h2 class="pm__title" id="pm-title">Where your cargo <span>arrives</span></h2>
+    </div>
+    <p class="pm__lead">The three gateways we clear through, how far each sits from Phnom Penh, and when your goods reach the factory gate.</p>
+  </div>
+
+  <div class="pm__body">
+    <!-- Map "camera": ports.js pans and zooms the traced map to each gateway as its chapter scrolls by.
+         Map coordinates are in the 672 × 559 space of the company-profile map. -->
+    <div class="pm__stage" id="pm-stage" aria-hidden="true">
+      <svg class="pm__svg" xmlns="http://www.w3.org/2000/svg">
+        <g class="pm-world">
+          <g class="pm-prov">
+            <path d="M313 396L310 404 310 422 312 424 320 423 321 421 330 421 329 407 326 399 323 397Z"/>
+            <path d="M315 374L319 393 321 395 328 396 331 404 331 412 334 415 334 420 340 420 344 423 344 427 340 430 340 435 344 439 344 455 348 459 370 459 373 452 371 437 372 424 366 422 362 416 354 414 350 406 352 394 356 391 356 387 344 385 344 373 339 372 337 369 332 369 328 375 324 375 322 373Z"/>
+            <path d="M313 374L307 374 300 387 300 391 295 403 293 425 310 424 310 418 313 415 313 411 310 407 310 402 313 396 318 395 316 380Z"/>
+            <path d="M311 425L306 432 306 437 327 437 329 439 329 447 336 453 336 458 343 458 342 437 339 434 339 430 342 427 342 422 321 421 319 423Z"/>
+            <path d="M376 370L370 373 366 378 357 384 357 390 353 392 350 404 351 411 360 415 366 423 371 425 373 451 368 462 370 472 363 473 362 492 383 500 382 498 389 491 392 485 395 487 398 486 400 488 414 485 413 475 416 471 415 457 417 451 421 448 420 428 425 410 433 406 438 406 438 401 428 387 407 386 400 383 392 383 389 379 389 373Z"/>
+            <path d="M347 473L347 486 353 487 353 492 361 492 363 473Z"/>
+            <path d="M185 372L185 378 183 379 183 388 186 391 186 399 203 411 212 411 214 414 217 414 219 416 219 420 217 422 217 457 230 460 236 467 240 468 251 467 256 462 263 462 269 465 278 466 283 470 296 469 300 441 309 430 309 425 293 424 295 402 298 397 300 387 306 379 306 375 288 378 278 384 270 383 265 379 259 379 251 371 250 365 245 359 244 352 239 349 237 345 224 345 224 351 219 355 218 361 210 363 208 359 201 359 201 364 197 365 193 371Z"/>
+            <path d="M302 436L300 440 297 466 294 470 284 470 279 466 264 464 264 470 273 472 278 478 280 486 279 496 288 496 291 494 298 495 302 503 302 512 296 518 297 530 300 532 301 542 302 541 303 543 319 544 324 541 328 533 334 527 349 519 349 514 345 510 345 505 341 498 343 494 342 483 337 481 337 475 340 470 340 459 335 456 335 451 329 446 329 438 323 436Z"/>
+            <path d="M431 286L408 287 404 291 399 291 396 288 388 288 384 302 376 302 373 300 358 300 355 302 355 307 359 310 359 314 362 317 361 323 340 322 335 317 326 317 323 320 323 325 325 327 325 332 322 339 324 351 318 354 316 361 318 372 322 374 329 374 332 370 340 371 344 374 343 385 356 386 374 371 383 371 385 373 393 374 397 360 397 351 407 345 407 317 411 313 432 315 436 310 436 297Z"/>
+            <path d="M262 284L261 295 256 299 255 304 244 313 238 314 234 320 234 331 238 349 244 353 245 360 250 366 251 372 258 379 264 379 269 383 279 384 288 378 309 374 308 363 311 361 309 343 312 335 316 330 316 326 309 319 301 319 294 311 294 308 282 300 282 294 276 289 273 284Z"/>
+            <path d="M275 274L275 278 277 280 287 282 293 288 293 303 297 308 299 314 301 316 310 318 317 326 317 330 310 341 310 348 317 353 323 353 324 326 322 324 320 312 325 307 326 301 321 300 321 296 315 286 315 281 311 281 295 273Z"/>
+            <path d="M440 405L427 408 424 412 420 429 422 452 454 452 453 446 448 444 449 429 451 426 448 421 449 411 447 409 443 409Z"/>
+            <path d="M420 456L415 456 416 470 413 476 413 483 415 485 421 484 430 478 430 476 424 475 424 471 427 470 426 460 424 460Z"/>
+            <path d="M221 458L221 475 217 478 209 478 202 484 202 514 206 519 206 525 200 531 201 534 216 540 224 540 231 537 232 540 241 537 245 538 246 535 262 534 265 555 272 556 274 558 280 552 281 548 286 542 301 542 300 531 296 529 296 519 302 512 301 500 298 494 292 493 287 496 281 496 278 477 275 473 270 473 264 469 264 462 254 463 250 467 237 467 231 460Z"/>
+            <path d="M407 316L405 333 407 344 398 349 396 366 394 372 390 374 391 383 400 383 403 385 426 386 437 402 443 400 443 398 448 393 452 393 458 397 461 396 468 380 476 380 481 384 489 383 491 385 498 386 504 393 511 390 515 390 521 394 522 393 517 381 521 374 520 370 523 368 523 366 517 355 514 355 512 357 488 356 487 347 474 340 473 333 469 332 464 325 458 324 456 322 445 322 444 318 423 315 417 312 410 313Z"/>
+            <path d="M217 426L212 426 209 428 195 447 195 462 191 470 184 476 185 493 182 494 180 498 175 498 174 504 169 508 168 514 170 515 170 518 185 519 185 529 191 529 192 521 195 523 194 526 197 526 200 531 202 531 206 526 206 518 202 513 202 485 210 478 220 477 221 471 220 460 216 453 216 448 218 445Z"/>
+            <path d="M447 458L444 466 444 475 437 476 440 484 448 493 449 496 447 499 456 502 455 500 460 494 468 502 475 506 488 507 488 502 482 493 483 485 490 484 486 471 482 470 479 473 467 463 465 457 459 457 453 454 451 458Z"/>
+            <path d="M431 285L430 267 425 256 424 249 425 236 422 232 422 225 419 219 419 206 415 202 412 188 408 184 407 163 402 163 384 172 374 183 364 188 354 200 336 211 331 211 323 201 322 190 325 185 325 180 303 179 293 184 283 185 282 189 278 193 271 196 270 219 259 228 259 231 256 234 246 238 238 248 239 254 251 255 257 252 263 252 266 254 271 261 271 265 268 270 268 274 275 275 282 272 292 272 308 280 315 281 316 288 321 297 321 300 326 301 326 305 320 311 321 319 334 317 337 321 350 323 361 322 361 315 357 307 357 302 360 299 370 299 376 301 379 304 383 304 389 288 394 288 398 291 405 291 409 287 424 287Z"/>
+            <path d="M152 338L141 337 139 339 134 339 131 342 131 345 127 347 123 352 116 352 105 357 99 357 85 350 79 349 56 349 56 353 61 360 62 367 65 373 68 376 71 375 81 388 81 395 85 397 87 403 91 406 89 407 89 413 91 413 91 416 96 420 99 418 99 415 102 418 102 424 98 422 93 426 95 429 95 435 100 436 103 443 97 443 95 446 93 446 91 452 94 453 97 461 100 463 98 464 99 468 96 473 98 482 96 492 100 496 100 499 103 498 105 500 114 492 118 491 125 494 128 498 136 496 135 486 139 477 139 473 141 471 138 469 142 466 143 463 141 462 143 460 146 461 147 458 152 459 160 470 165 470 168 473 168 483 172 491 175 493 174 494 176 498 181 498 184 492 184 477 190 472 195 463 194 449 206 432 218 422 217 414 212 411 204 411 186 398 186 390 183 388 183 380 185 378 185 372 191 371 191 367 187 361 176 359 173 355 170 355 166 352 164 348Z"/>
+            <path d="M261 284L246 277 237 275 229 264 225 248 213 248 212 246 209 246 205 242 201 241 198 237 191 236 190 232 187 232 185 230 184 222 182 220 177 220 176 229 172 231 172 236 164 240 164 276 159 283 148 283 139 278 126 277 116 283 111 283 104 288 99 288 92 293 87 293 85 290 81 290 76 295 71 295 67 299 57 299 51 303 48 331 57 348 73 348 84 350 97 357 106 357 115 352 124 352 130 346 134 338 149 337 162 348 164 348 167 354 172 355 174 358 184 359 191 369 195 369 200 364 200 361 202 359 207 359 209 363 215 363 218 361 218 357 223 352 223 347 225 345 237 343 233 323 239 314 245 313 249 309 253 308 256 300 260 297Z"/>
+            <path d="M171 515L153 519 153 523 146 531 149 532 155 540 159 539 162 542 162 547 164 548 170 545 175 547 176 546 174 540 168 535 168 529 171 528Z"/>
+            <path d="M413 192L415 203 419 207 420 224 422 225 422 233 424 235 426 259 430 267 431 288 434 292 437 302 437 308 433 311 433 316 443 317 445 323 455 322 457 324 462 324 468 331 473 334 473 340 478 341 487 348 487 355 496 357 513 357 523 352 526 356 531 353 546 355 550 353 555 355 566 339 566 325 557 315 543 311 538 301 534 297 512 284 512 278 516 271 518 261 529 250 535 248 543 241 543 231 526 220 518 218 508 207 508 203 511 198 519 198 519 194 512 189 510 169 499 169 494 174 478 174 470 185 469 191 456 203 450 206 444 206 429 196Z"/>
+            <path d="M137 105L138 129 135 132 135 166 140 173 148 173 150 177 158 183 164 183 167 185 197 191 208 195 215 201 219 207 225 223 231 232 232 238 237 245 241 245 247 238 254 234 257 234 259 229 265 223 268 223 269 217 271 215 271 197 274 194 281 192 283 186 283 171 293 161 293 153 284 152 280 149 263 147 263 141 267 136 267 132 265 130 265 124 261 116 259 115 259 111 263 105 264 98 261 96 242 96 240 98 235 98 232 95 226 94 163 93 150 102 142 102Z"/>
+            <path d="M292 36L287 39 284 44 273 42 270 45 269 67 272 70 272 74 266 81 264 88 265 100 258 111 258 115 264 121 266 127 266 136 263 140 263 147 271 147 294 154 293 160 283 169 284 185 294 184 303 179 323 179 324 186 322 189 322 198 324 199 324 203 328 209 332 212 336 212 350 202 354 201 365 188 373 185 389 169 403 164 409 157 411 132 409 125 405 121 405 111 409 107 427 107 427 103 431 100 451 100 451 98 438 86 437 79 431 77 427 79 422 75 419 77 418 74 414 71 411 72 407 70 396 77 384 77 378 69 374 68 371 65 368 58 364 55 363 45 361 46 357 59 351 63 346 63 341 60 340 55 336 49 337 41 329 40 323 36 317 37 313 33 304 38 302 35 297 39Z"/>
+            <path d="M3 157L3 169 1 175 2 184 10 205 24 220 23 222 30 221 32 218 32 210 37 206 45 207 53 217 53 249 41 261 29 263 29 265 36 270 44 280 49 283 52 290 55 290 57 292 57 299 58 298 59 301 63 301 65 298 69 298 73 294 78 294 81 291 93 293 95 290 106 287 113 282 119 282 127 277 139 278 149 284 160 283 162 281 165 268 165 262 162 255 164 241 172 237 172 232 175 229 175 224 180 218 180 214 173 206 172 185 159 183 151 177 149 173 115 171 104 167 83 170 82 173 75 173 62 169 47 168 46 157Z"/>
+            <path d="M511 169L511 186 513 191 518 194 518 198 509 199 509 208 517 218 525 220 543 232 542 241 534 248 528 250 518 260 511 285 534 298 538 302 542 311 556 315 566 327 566 340 573 342 584 342 591 339 609 321 610 317 617 312 622 312 626 309 637 308 643 316 647 318 649 312 661 305 661 297 665 288 663 283 666 279 666 272 664 269 665 262 663 259 663 247 654 235 655 231 653 226 655 224 654 216 667 183 659 182 654 179 648 179 643 182 638 182 637 180 630 180 627 175 623 175 619 179 601 180 602 192 598 197 574 199 564 196 544 180 539 179 536 176 530 176 522 168Z"/>
+            <path d="M532 13L524 19 526 21 525 24 520 23 521 27 517 32 512 31 505 33 500 28 497 28 498 32 494 42 489 45 477 43 475 46 469 46 465 43 465 47 470 52 469 58 479 67 482 76 489 82 487 87 479 91 478 102 470 99 428 101 427 107 409 106 405 109 405 123 411 130 410 154 407 158 408 186 412 189 413 192 429 196 439 204 445 207 449 207 457 203 462 197 468 194 470 186 479 174 495 174 500 169 521 168 529 176 535 176 537 178 541 178 545 174 543 162 536 148 536 142 538 140 539 132 549 120 549 114 544 107 542 92 553 90 561 86 564 82 564 77 559 68 559 35 557 34 555 36 549 32 545 32 541 25 536 24 537 22 535 16Z"/>
+            <path d="M21 260L23 263 43 260 52 251 52 243 34 243 32 241 25 242 25 251 22 255 23 257Z"/>
+            <path d="M34 207L32 209 32 217 29 221 29 226 33 226 34 228 52 229 52 214 46 207Z"/>
+            <path d="M90 55L90 59 95 71 99 75 106 75 109 77 109 87 107 89 109 96 119 96 124 90 128 90 133 99 139 102 153 101 164 93 224 93 226 95 231 95 235 99 240 99 244 96 264 96 264 88 266 82 273 75 273 70 269 66 270 45 263 42 252 42 248 39 244 39 241 42 236 39 232 44 224 42 222 45 218 46 209 44 200 47 191 42 187 44 180 41 174 41 172 39 172 33 167 33 168 35 164 38 155 35 147 39 143 43 138 40 131 45 122 44 112 48 106 47Z"/>
+            <path d="M138 100L133 98 128 89 124 89 118 96 110 96 108 93 110 76 99 74 95 70 91 58 88 58 86 61 76 67 77 70 72 78 73 87 65 91 57 99 55 108 50 116 50 120 28 133 28 135 36 141 25 147 11 148 3 146 0 149 3 156 45 157 46 168 56 168 77 173 82 173 84 170 99 167 107 167 111 170 136 172 135 133 138 130Z"/>
+            <path d="M661 0L659 5 652 10 649 22 640 20 635 14 630 14 629 18 626 20 626 26 624 28 619 27 617 33 607 39 603 39 599 34 593 43 589 45 590 48 588 50 580 47 573 53 560 39 558 39 559 69 563 76 563 83 551 91 542 91 543 103 546 111 549 114 549 119 546 124 540 129 538 139 535 143 535 148 544 164 545 173 542 176 542 180 553 187 560 194 571 198 599 197 602 192 602 179 617 180 623 176 627 176 629 180 635 180 638 183 644 183 649 179 653 179 658 182 667 182 666 181 668 180 671 173 670 153 665 140 665 136 661 130 659 123 649 117 651 110 650 106 652 102 649 98 649 92 641 91 637 87 637 82 639 79 634 75 637 67 640 65 643 59 643 51 641 48 644 42 647 40 649 35 654 36 655 28 657 25 656 24 659 19 658 12 662 8Z"/>
+          </g>
+          <path class="pm-river" d="M268 268C273.3 275.3 292.3 294.8 300 312C307.7 329.2 308.9 354.7 314 371C319.1 387.3 325.8 400.5 330 410C335.2 419.5 339.8 422.0 342 428C344.2 434.0 343.1 438.1 344 446C344.9 453.9 346.9 470.6 348 476"/>
+          <path class="pm-water" d="M173 186L171 191 173 194 173 197 174 198 174 208 176 211 181 215 181 217 179 218 179 219 184 222 184 228 186 231 189 231 191 233 190 237 191 237 192 235 194 235 196 237 198 237 199 239 203 242 205 242 206 243 206 245 211 246 213 248 215 247 219 247 220 246 224 246 226 248 225 252 228 255 227 260 229 260 230 261 230 265 232 267 234 272 237 275 241 275 244 277 247 277 252 281 254 281 256 283 260 283 262 285 264 283 272 283 276 287 276 289 282 294 284 294 287 296 282 293 282 291 283 290 285 290 285 288 282 286 281 284 278 284 276 281 273 281 272 280 272 278 273 277 267 273 267 271 270 267 271 262 269 257 266 254 262 252 258 252 255 254 252 254 249 256 246 256 238 253 237 245 234 239 231 236 231 233 229 230 228 226 226 225 223 219 221 211 219 209 219 207 217 205 216 202 211 197 208 196 206 194 202 194 199 192 195 192 191 190 182 189 176 186Z"/>
+          <path class="pm-coast" d="M120 532L119 534 124 541 125 537 121 536 123 532ZM108 513L110 519 116 522 116 526 122 522 119 519 115 518 114 512ZM662 0L660 0 659 5 655 9 652 10 651 17 648 22 640 20 635 14 630 14 629 18 626 20 624 28 619 27 617 33 614 36 611 36 607 39 603 39 600 33 598 33 598 36 594 40 593 43 589 45 590 46 589 49 584 49 580 47 576 49 574 52 572 52 566 47 560 39 558 34 554 35 549 32 545 32 542 26 537 24 535 16 532 13 524 19 525 20 524 23 520 23 521 27 517 32 512 31 509 33 505 33 500 28 497 27 496 38 494 42 489 45 486 45 483 43 477 43 476 45 469 46 465 43 465 47 470 52 469 58 473 63 475 63 479 67 482 76 488 81 488 86 479 91 479 101 478 102 470 99 455 100 451 98 438 86 437 79 431 77 426 78 422 75 419 76 414 71 407 70 404 73 396 77 393 76 384 77 378 69 374 68 371 65 368 58 364 55 363 45 361 46 357 59 351 63 346 63 341 60 340 55 337 51 337 41 329 40 323 36 317 37 313 33 307 37 303 37 301 34 298 38 295 38 293 35 287 39 284 44 278 44 276 42 273 42 272 44 267 44 263 42 252 42 248 39 238 41 236 38 232 44 229 44 228 42 224 42 222 45 213 46 209 44 204 45 202 47 196 46 191 42 187 44 180 41 174 41 172 39 172 33 167 33 167 36 164 38 158 35 155 35 147 39 144 42 140 42 138 40 134 44 122 44 117 45 115 47 102 48 90 55 86 61 79 64 76 67 75 75 72 78 72 88 65 91 57 99 55 108 50 116 50 120 35 129 31 130 28 133 28 135 33 139 33 141 25 147 11 148 3 146 0 148 0 152 3 154 3 169 2 174 0 176 2 177 2 184 5 189 7 198 10 202 10 205 13 209 17 211 19 216 22 219 22 221 19 223 20 224 19 228 22 234 21 239 25 245 25 251 22 255 21 260 24 265 29 265 36 270 41 277 49 283 50 288 57 292 57 299 51 303 51 313 49 318 48 331 56 344 56 353 61 360 62 367 65 373 73 382 74 399 79 412 81 412 82 410 88 410 89 413 91 414 90 417 87 417 84 414 82 414 85 420 85 427 81 428 81 436 83 439 82 446 84 449 86 449 88 443 88 439 86 437 87 432 85 427 88 422 91 422 92 417 94 417 98 421 98 423 93 426 95 429 95 435 100 436 102 441 97 443 95 446 93 446 92 451 90 453 93 453 95 455 98 462 98 471 96 473 98 487 96 489 96 492 100 496 100 499 105 500 114 492 123 493 128 498 136 496 135 486 139 477 139 473 142 470 142 464 147 459 152 459 160 470 165 470 167 472 168 483 174 493 175 498 174 504 169 508 168 515 157 517 153 519 153 523 146 531 149 532 156 541 157 539 159 539 162 542 161 546 158 547 159 549 160 547 164 548 167 546 175 547 178 546 179 547 178 551 182 554 184 552 183 547 180 546 179 543 187 540 192 532 191 529 192 526 197 526 201 534 206 535 216 540 224 540 227 538 231 538 233 541 237 538 242 538 246 542 247 548 249 550 255 547 260 553 264 553 266 556 272 556 273 558 275 558 275 556 280 552 281 548 284 546 285 543 292 543 294 541 307 544 322 543 328 533 334 527 349 519 349 514 345 510 345 505 342 500 343 493 349 487 354 488 352 492 362 492 367 495 372 495 383 500 384 495 389 491 392 486 405 488 409 486 421 484 430 478 437 478 442 487 448 493 447 499 456 502 456 499 458 496 461 495 468 502 475 506 488 507 488 502 483 495 483 485 490 484 488 474 485 470 478 472 467 463 465 457 459 457 456 455 453 451 453 446 448 444 449 429 451 424 449 423 449 411 447 409 443 409 440 405 440 402 443 400 443 398 448 393 452 393 458 397 461 396 468 380 476 380 478 383 481 384 489 383 491 385 498 386 504 393 511 390 515 390 521 394 522 392 518 386 518 379 521 374 520 370 523 368 523 366 518 357 519 354 524 353 526 356 530 354 555 355 559 351 559 349 565 340 569 340 573 342 584 342 591 339 609 321 610 317 617 312 622 312 626 309 637 308 643 316 647 318 649 312 656 309 661 305 662 302 661 297 665 288 664 282 666 279 666 272 664 269 665 262 663 259 663 247 654 235 655 232 654 216 668 182 668 179 671 176 671 153 669 152 665 140 665 136 661 130 659 123 650 118 650 111 652 109 650 108 652 102 649 98 650 94 648 91 641 91 638 88 639 79 635 76 635 71 643 59 642 47 644 42 647 40 649 36 654 36 655 28 659 19 658 12 662 8Z"/>
+          <g class="pm-routes">
+            <path class="pm-route pm-route--base" data-port="kti" d="M328 407C324 422 315 434 314 451"/>
+            <path class="pm-route pm-route--base" data-port="pnh" d="M328 407C346 409 364 419 375 435"/>
+            <path class="pm-route pm-route--base" data-port="shv" d="M328 407C300 414 268 428 246 452C222 478 178 504 151 529"/>
+            <path class="pm-route pm-route--line" data-port="kti" d="M328 407C324 422 315 434 314 451"/>
+            <path class="pm-route pm-route--line" data-port="pnh" d="M328 407C346 409 364 419 375 435"/>
+            <path class="pm-route pm-route--line" data-port="shv" d="M328 407C300 414 268 428 246 452C222 478 178 504 151 529"/>
+          </g>
+        </g>
+      </svg>
+
+      <span class="pm-cross pm-cross--x"></span>
+      <span class="pm-cross pm-cross--y"></span>
+
+      <span class="pm-country" data-x="34" data-y="44">Thailand</span>
+      <span class="pm-country" data-x="560" data-y="-6">Laos</span>
+      <span class="pm-country" data-x="585" data-y="470">Vietnam</span>
+      <span class="pm-country" data-x="34" data-y="446">Gulf of<br>Thailand</span>
+
+      <span class="pm-city" data-x="328" data-y="407"><span class="pm-city__dot"></span><span class="pm-city__tag">Phnom Penh</span></span>
+      <a class="pm-pin pm-pin--below" href="#port-kti" tabindex="-1" data-port="kti" data-x="314" data-y="451"><span class="pm-pin__dot"></span><span class="pm-pin__tag">Techo International Airport</span></a>
+      <a class="pm-pin pm-pin--right" href="#port-pnh" tabindex="-1" data-port="pnh" data-x="375" data-y="435"><span class="pm-pin__dot"></span><span class="pm-pin__tag">Phnom Penh Autonomous Port</span></a>
+      <a class="pm-pin pm-pin--right" href="#port-shv" tabindex="-1" data-port="shv" data-x="151" data-y="529"><span class="pm-pin__dot"></span><span class="pm-pin__tag">Sihanoukville Port</span></a>
+      <span class="pm-truck" data-x="328" data-y="407"></span>
+
+      <div class="pm-hud">
+        <p class="pm-hud__route"><span class="pm-hud__k">Route</span> <span id="pm-hud-route">Phnom Penh &middot; 3 gateways</span></p>
+        <p class="pm-hud__idx"><span id="pm-hud-idx">00</span> / 03</p>
+      </div>
+    </div>
+
+    <div class="pm__list">
+    <!-- Overview chapter: the map shows the whole country while this is on screen -->
+    <div class="pm-intro">
+      <p class="pm-intro__k">Three gateways, one team</p>
+      <ul class="pm-index">
+        <li><a href="#port-kti" data-port="kti"><span class="pm-index__name">Techo International Airport</span><span class="pm-index__km">~25 km</span></a></li>
+        <li><a href="#port-pnh" data-port="pnh"><span class="pm-index__name">Phnom Penh Autonomous Port</span><span class="pm-index__km">40 km</span></a></li>
+        <li><a href="#port-shv" data-port="shv"><span class="pm-index__name">Sihanoukville Port</span><span class="pm-index__km">230 km</span></a></li>
+      </ul>
+      <p class="pm-intro__hint"><span aria-hidden="true"></span>Scroll to follow each route from Phnom Penh</p>
+    </div>
+
+    <ol class="pm__ports">
+      <li class="pm-port" id="port-kti" data-port="kti">
+        <div class="pm-port__top"><span class="pm-badge">Airport</span></div>
+        <h3 class="pm-port__name">Techo International Airport</h3>
+        <p class="pm-port__dist" aria-label="About 25 kilometres from Phnom Penh"><span class="pm-port__approx" aria-hidden="true">~</span><span class="pm-port__num" data-count="25" aria-hidden="true">25</span><span class="pm-port__unit" aria-hidden="true">km</span></p>
+        <p class="pm-port__note">Phnom Penh&rsquo;s new air cargo hub, opened in 2025.</p>
+        <dl class="pm-port__meta">
+          <div class="pm-when pm-when--same"><dt>At your factory</dt><dd>Same day</dd></div>
+          <div><dt>Cargo</dt><dd>Air freight</dd></div>
+        </dl>
+      </li>
+      <li class="pm-port" id="port-pnh" data-port="pnh">
+        <div class="pm-port__top"><span class="pm-badge">River port</span></div>
+        <h3 class="pm-port__name">Phnom Penh Autonomous Port</h3>
+        <p class="pm-port__dist" aria-label="40 kilometres from Phnom Penh"><span class="pm-port__num" data-count="40" aria-hidden="true">40</span><span class="pm-port__unit" aria-hidden="true">km</span></p>
+        <p class="pm-port__note">The container port on the Mekong, downriver from the city.</p>
+        <dl class="pm-port__meta">
+          <div class="pm-when pm-when--same"><dt>At your factory</dt><dd>Same day</dd></div>
+          <div><dt>Cargo</dt><dd>Full containers &amp; LCL</dd></div>
+        </dl>
+      </li>
+      <li class="pm-port" id="port-shv" data-port="shv">
+        <div class="pm-port__top"><span class="pm-badge">Deep-sea port</span></div>
+        <h3 class="pm-port__name">Sihanoukville Port</h3>
+        <p class="pm-port__dist" aria-label="230 kilometres from Phnom Penh"><span class="pm-port__num" data-count="230" aria-hidden="true">230</span><span class="pm-port__unit" aria-hidden="true">km</span></p>
+        <p class="pm-port__note">About 6 hours by truck. The longer road from the coast puts arrival on the next day.</p>
+        <dl class="pm-port__meta">
+          <div class="pm-when"><dt>At your factory</dt><dd>Next day</dd></div>
+          <div><dt>Cargo</dt><dd>Full containers &amp; LCL</dd></div>
+        </dl>
+      </li>
+    </ol>
+    </div>
+  </div>
+
+  <div class="pm__foot">
+    <p class="pm__note">Road distances from Phnom Penh city centre. Delivery times are estimates from customs release; inspections, traffic and factory receiving hours can affect timing. Map is schematic; locations around Phnom Penh are spaced out for legibility.</p>
+    <div class="pm__cta">
+      <p>Shipping somewhere else? We clear at 10+ customs ports, from the coast to the Bavet border.</p>
+      <div class="btn-pair">
+        <a href="contact/" class="btn btn--cyan">Ask about your port</a>
+        <a href="contact/" class="btn btn--cyan btn--round" aria-label="Ask about your port">
+          <img src="assets/arrow.svg" alt="">
+          <img src="assets/arrow.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fleet" id="fleet" aria-labelledby="fleet-title">
+  <div class="fleet__inner">
+    <div class="fleet__head">
+      <div>
+        <p class="about__eyebrow">Fleet monitoring</p>
+        <h2 class="fleet__title" id="fleet-title">Trucks and vans <span class="fleet__live">tracked live<span class="fleet__pulse" aria-hidden="true"></span></span></h2>
+      </div>
+      <p class="fleet__lead">Every truck and van carrying your cargo is on our screens from the port gate to your factory: where it is, what its cameras see and whether its connection is holding.</p>
+    </div>
+
+    <div class="fleet__body">
+      <!-- Tabs: fleet.js cycles them (with a progress line), and clicking or the arrow keys pick one -->
+      <div class="fleet__tabs" role="tablist" aria-label="Fleet monitoring features">
+        <button type="button" class="fleet-tab is-active" role="tab" id="fleet-tab-gps" aria-selected="true" aria-controls="fleet-console" data-view="gps">
+          <span class="fleet-tab__bar" aria-hidden="true"></span>
+          <span class="fleet-tab__num" aria-hidden="true">01</span>
+          <span class="fleet-tab__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          </span>
+          <span class="fleet-tab__name">GPS location tracking</span>
+          <span class="fleet-tab__text"><span>Each vehicle reports its position as it drives, so we can tell you where your cargo is and when it will reach your gate.</span></span>
+        </button>
+        <button type="button" class="fleet-tab" role="tab" id="fleet-tab-cam" aria-selected="false" aria-controls="fleet-console" data-view="cam">
+          <span class="fleet-tab__bar" aria-hidden="true"></span>
+          <span class="fleet-tab__num" aria-hidden="true">02</span>
+          <span class="fleet-tab__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="14" height="11" rx="2"/><path d="m16 10.5 6-3.5v10l-6-3.5"/><circle cx="6.5" cy="10.5" r="1"/></svg>
+          </span>
+          <span class="fleet-tab__name">On-board cameras</span>
+          <span class="fleet-tab__text"><span>Cameras on board give us eyes on the road, and a record of the trip if a question ever comes up.</span></span>
+        </button>
+        <button type="button" class="fleet-tab" role="tab" id="fleet-tab-net" aria-selected="false" aria-controls="fleet-console" data-view="net">
+          <span class="fleet-tab__bar" aria-hidden="true"></span>
+          <span class="fleet-tab__num" aria-hidden="true">03</span>
+          <span class="fleet-tab__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="2"/><path d="M12 12v10M8.5 22h7M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M5.6 3.6a9 9 0 0 0 0 12.8M18.4 3.6a9 9 0 0 1 0 12.8"/></svg>
+          </span>
+          <span class="fleet-tab__name">4G network monitoring</span>
+          <span class="fleet-tab__text"><span>Every vehicle stays connected over 4G, and we watch that link so a dropped signal is noticed straight away.</span></span>
+        </button>
+      </div>
+
+      <!-- Fleet console: a schematic of each feature with illustrative data, run by fleet.js -->
+      <div class="fleet__console" id="fleet-console" role="tabpanel" aria-labelledby="fleet-tab-gps">
+        <p class="sr-only" data-fc-desc>Illustration: a truck moving along its route from the port to the factory, with its speed, distance to go and arrival time.</p>
+        <div class="fc">
+          <div class="fc__in" aria-hidden="true">
+            <div class="fc__bar">
+              <span class="fc__brand">GS Fleet</span>
+              <span class="fc__mode" data-fc-mode>01 · GPS tracking</span>
+              <span class="fc__clock"><span class="fc__live"></span>Live <time data-fc-clock>--:--:--</time></span>
+            </div>
+
+            <div class="fc__screen">
+              <!-- 01 GPS -->
+              <div class="fc-view fc-gps is-active" data-view="gps">
+                <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="fc-cone" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#06B6D4" stop-opacity=".5"/>
+                      <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
+                    </linearGradient>
+                    <!-- port anchor (same drawing as assets/img/anchor.svg), coloured by the <use>'s color -->
+                    <symbol id="fc-anchor" viewBox="0 0 512 512">
+                      <g fill="currentColor">
+                        <path fill-rule="evenodd" d="M208 118a48 48 0 1 0 96 0a48 48 0 1 0-96 0ZM239 118a17 17 0 1 0 34 0a17 17 0 1 0-34 0Z"/>
+                        <rect x="177" y="205" width="158" height="14"/>
+                        <circle cx="177" cy="212" r="20"/>
+                        <circle cx="335" cy="212" r="20"/>
+                        <path d="M240 150h32l14 260h-60Z"/>
+                        <path d="M106 295A150 145 0 0 0 406 295H364A108 92 0 0 1 148 295Z"/>
+                        <path d="M127 238L95 292h64ZM385 238L353 292h64Z" stroke="currentColor" stroke-width="14" stroke-linejoin="round"/>
+                      </g>
+                    </symbol>
+                    <!-- factory (same drawing as assets/img/factory.svg) -->
+                    <symbol id="fc-factory" viewBox="0 0 512 512">
+                      <g fill="currentColor">
+                        <circle cx="160" cy="70" r="20"/>
+                        <circle cx="206" cy="44" r="13"/>
+                        <rect x="104" y="104" width="56" height="200" rx="10"/>
+                        <path fill-rule="evenodd" stroke="currentColor" stroke-width="16" stroke-linejoin="round" d="M88 432V276L200 212V276L312 212V276L424 212V432ZM128 320H192V384H128ZM232 320H296V384H232ZM336 320H400V384H336Z"/>
+                      </g>
+                    </symbol>
+                  </defs>
+                  <path class="fc-water" d="M-20 384C120 364 200 402 320 372S520 330 660 362"/>
+                  <path class="fc-road fc-road--minor" d="M130 -10C150 100 104 220 176 420"/>
+                  <path class="fc-road fc-road--minor" d="M470 420C462 330 520 262 660 300"/>
+                  <path class="fc-road fc-road--minor" d="M-10 64C100 84 200 34 330 52"/>
+                  <path class="fc-road fc-road--minor" d="M360 -10C392 60 470 70 520 20"/>
+                  <path class="fc-road" d="M-10 146C120 166 262 122 382 152S562 222 660 204"/>
+                  <path class="fc-road" d="M312 -10C300 120 338 262 306 420"/>
+                  <path class="fc-road" d="M-20 326L96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92L660 70"/>
+                  <path class="fc-route fc-route--todo" d="M96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92"/>
+                  <path class="fc-route fc-route--done" data-fc-route d="M96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92"/>
+
+                  <!-- markers: the outer <g> places them, the inner one is free for CSS to scale up on phones -->
+                  <g transform="translate(96 318)"><g class="fc-mark">
+                    <use class="fc-anchor" href="#fc-anchor" x="-18" y="-50" width="36" height="36"/>
+                    <circle class="fc-place" r="5"/>
+                    <text class="fc-label" x="24" y="-28">Port</text>
+                  </g></g>
+                  <g transform="translate(548 92)"><g class="fc-mark">
+                    <circle class="fc-fence" r="36"/>
+                    <use class="fc-anchor" href="#fc-factory" x="-17" y="-18" width="34" height="34"/>
+                    <text class="fc-label fc-label--gate" y="-46" text-anchor="middle">Factory gate</text>
+                  </g></g>
+
+                  <g data-fc-truck transform="translate(268 242)"><g class="fc-mark">
+                    <g data-fc-heading>
+                      <path class="fc-truck__cone" d="M0 0L48 -18A52 52 0 0 1 48 18Z"/>
+                    </g>
+                    <circle class="fc-truck__ring" r="8"/>
+                    <circle class="fc-truck__dot" r="6"/>
+                  </g></g>
+                </svg>
+                <div class="fc-gps__tag"><span class="fc-chip">On route</span><span>Truck 07</span><span class="fc-k">Port &rarr; Factory</span></div>
+                <dl class="fc-stats">
+                  <div><dt class="fc-k">Speed</dt><dd><span data-gps="speed">52</span><small>km/h</small></dd></div>
+                  <div><dt class="fc-k">To your gate</dt><dd><span data-gps="left">21.4</span><small>km</small></dd></div>
+                  <div><dt class="fc-k">Arrival</dt><dd><span data-gps="eta">26</span><small>min</small></dd></div>
+                </dl>
+              </div>
+
+              <!-- 02 Cameras -->
+              <div class="fc-view fc-cam" data-view="cam">
+                <div class="fc-cam__main">
+                  <img class="is-on" src="assets/img/hero-deep-2400.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 01 · Road">
+                  <img src="assets/img/truck.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 02 · Side">
+                  <img src="assets/img/hero.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 03 · Rear">
+                  <img class="fc-cam__trailer" src="assets/img/truck-vertical.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 04 · Trailer">
+                  <div class="fc-cam__hud">
+                    <span class="fc-cam__rec"><i></i><span data-cam-label>Cam 01 · Road</span></span>
+                    <span data-fc-stamp>----------  --:--:--</span>
+                  </div>
+                  <span class="fc-cam__reticle"></span>
+                </div>
+                <div class="fc-cam__thumbs">
+                  <div class="fc-cam__thumb is-on"><img src="assets/img/hero-deep-2400.webp" alt="" loading="lazy" decoding="async"><span>01</span></div>
+                  <div class="fc-cam__thumb"><img src="assets/img/truck.webp" alt="" loading="lazy" decoding="async"><span>02</span></div>
+                  <div class="fc-cam__thumb"><img src="assets/img/hero.webp" alt="" loading="lazy" decoding="async"><span>03</span></div>
+                  <div class="fc-cam__thumb"><img class="fc-cam__trailer" src="assets/img/truck-vertical.webp" alt="" loading="lazy" decoding="async"><span>04</span></div>
+                </div>
+              </div>
+
+              <!-- 03 4G network -->
+              <div class="fc-view fc-net" data-view="net">
+                <div class="fc-net__sig">
+                  <span class="fc-k">Truck 07 · Link</span>
+                  <div class="fc-net__meter">
+                    <span class="fc-net__gen">4G</span>
+                    <span class="fc-net__bars" data-net="bars"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span>
+                  </div>
+                  <span><span class="fc-chip">Connected</span></span>
+                </div>
+                <div class="fc-net__chart">
+                  <span class="fc-k">Signal · last 30 s</span>
+                  <div class="fc-net__plot">
+                    <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="fc-area" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#06B6D4" stop-opacity=".35"/>
+                          <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path class="fc-net__grid" d="M0 25H400M0 50H400M0 75H400"/>
+                      <path class="fc-net__area" data-net="area" d="M0 40L40 34L80 46L120 30L160 38L200 28L240 42L280 32L320 36L360 24L400 30L400 100L0 100Z"/>
+                      <path class="fc-net__line" data-net="line" d="M0 40L40 34L80 46L120 30L160 38L200 28L240 42L280 32L320 36L360 24L400 30"/>
+                    </svg>
+                    <span class="fc-net__head" data-net="head" style="--y: 30%"></span>
+                  </div>
+                </div>
+                <ul class="fc-net__units">
+                  <li><span>Truck 03</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></li>
+                  <li><span>Truck 07</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span></li>
+                  <li><span>Van 02</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></li>
+                  <li><span>Van 05</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i></i><i></i></span></li>
+                </ul>
+                <dl class="fc-net__stats">
+                  <div><dt class="fc-k">Signal</dt><dd><span data-net="dbm">&minus;71</span><small>dBm</small></dd></div>
+                  <div><dt class="fc-k">Latency</dt><dd><span data-net="ms">42</span><small>ms</small></dd></div>
+                  <div><dt class="fc-k">Last report</dt><dd><span data-net="ago">1</span><small>s ago</small></dd></div>
+                </dl>
+              </div>
+
+              <span class="fc__corner fc__corner--tl"></span>
+              <span class="fc__corner fc__corner--tr"></span>
+              <span class="fc__corner fc__corner--bl"></span>
+              <span class="fc__corner fc__corner--br"></span>
+              <span class="fc__wipe"></span>
+            </div>
+
+            <div class="fc__foot">
+              <span class="fc__note">Illustrative view</span>
+              <span data-gps="coords">11.5240&deg; N &middot; 104.8930&deg; E</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -378,8 +795,8 @@
     </article>
     <article class="plan plan--dark">
       <h3>Export clearance</h3>
-      <p class="plan__big">CO forms handled</p>
-      <p>Send your booking confirmation with your invoice and packing list. We prepare your declaration and certificate of origin, whether Form A, Form D or GSP REX, and clear your shipment for loading.</p>
+      <p class="plan__big">Ready for loading</p>
+      <p>Send your booking confirmation with your invoice and packing list. We prepare and file your export declaration, stand by at inspection and clear your shipment in time for its vessel cut-off.</p>
       <a href="contact/" class="btn btn--cyan">Start today</a>
     </article>
   </div>
@@ -398,17 +815,35 @@
 </section>
 
 <footer class="footer">
-  <div class="footer__top">
-    <div class="footer__group" style="grid-area: services">
+  <div class="newsletter">
+    <h2>The Grateful Customs Update</h2>
+    <p>Stay ahead of changes to customs rules, tariffs, the National Single Window and certificates of origin, explained simply for factories and exporters.</p>
+    <!-- Connect action="" to your mailing list provider -->
+    <form action="" method="post">
+      <input type="text" name="first_name" placeholder="Enter first name*" aria-label="First name" autocomplete="given-name" required>
+      <input type="text" name="last_name" placeholder="Enter last name*" aria-label="Last name" autocomplete="family-name" required>
+      <input type="email" name="email" placeholder="Enter e-mail address*" aria-label="E-mail address" autocomplete="email" required>
+      <button type="submit" class="btn btn--cyan">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="footer__main">
+    <div class="footer__brand">
+      <a href="#" class="footer__logo" aria-label="Grateful Solutions Cambodia — home">
+        <img src="assets/img/logo-light.webp" alt="Grateful Solutions Cambodia Co., Ltd" loading="lazy">
+      </a>
+    </div>
+    <div class="footer__group">
       <h3 id="ft-services">Services</h3>
       <ul>
         <li><span>Import Clearance</span></li>
         <li><span>Export Clearance &amp; CO Forms</span></li>
+        <li><span>Permit Applications</span></li>
         <li><span>Trucking to Your Factory</span></li>
         <li><span>CDC Master List</span></li>
       </ul>
     </div>
-    <nav class="footer__group" style="grid-area: explore" aria-labelledby="ft-explore">
+    <nav class="footer__group" aria-labelledby="ft-explore">
       <h3 id="ft-explore">Explore</h3>
       <ul>
         <li><a href="#">Home</a></li>
@@ -418,7 +853,7 @@
         <li><a href="contact/">Contact</a></li>
       </ul>
     </nav>
-    <nav class="footer__group" style="grid-area: legal" aria-labelledby="ft-legal">
+    <nav class="footer__group" aria-labelledby="ft-legal">
       <h3 id="ft-legal">Legal</h3>
       <ul>
         <li><a href="privacy-policy/">Privacy Policy</a></li>
@@ -426,175 +861,48 @@
         <li><a href="terms-conditions-of-service/">Terms &amp; Conditions of Service</a></li>
       </ul>
     </nav>
-    <div class="footer__group" style="grid-area: contact">
+    <div class="footer__group">
       <h3>Contact</h3>
       <ul>
         <li><a href="tel:+85598484414">(855) 98 484 414</a></li>
         <li><a href="mailto:gs@grateful-solutions.com">gs@grateful-solutions.com</a></li>
+        <li><a href="mailto:cos.service@grateful-solutions.com">cos.service@grateful-solutions.com</a></li>
+        <li><a href="mailto:sales@grateful-solutions.com">sales@grateful-solutions.com</a></li>
         <li><address>#7E0, Beton Street, Tuol Sangke II, Russey Keo, Phnom Penh, Cambodia</address></li>
       </ul>
     </div>
+  </div>
 
+  <div class="footer__bottom">
+    <p class="footer__copy">© 2026 Grateful Solutions (Cambodia) Co., Ltd.</p>
     <div class="footer__badge">
-      <img src="assets/img/gdce-logo.png" alt="GDCE emblem" loading="lazy">
+      <img src="assets/img/gdce-logo.webp" alt="GDCE emblem" loading="lazy">
       <p>
         <span class="footer__badge-label">Licensed customs broker</span>
         Registered with the General Department of Customs and Excise of Cambodia
       </p>
     </div>
-
-    <div class="newsletter">
-      <h2>The Grateful Customs Update</h2>
-      <p>Stay ahead of changes to customs rules, tariffs, the National Single Window and certificates of origin, explained simply for factories and exporters.</p>
-      <!-- Connect action="" to your mailing list provider -->
-      <form action="" method="post">
-        <input type="text" name="first_name" placeholder="Enter first name*" aria-label="First name" autocomplete="given-name" required>
-        <input type="text" name="last_name" placeholder="Enter last name*" aria-label="Last name" autocomplete="family-name" required>
-        <input type="email" name="email" placeholder="Enter e-mail address*" aria-label="E-mail address" autocomplete="email" required>
-        <button type="submit" class="btn btn--cyan">Subscribe</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer__bottom">
-    <a href="#" class="footer__logo" aria-label="Grateful Solutions Cambodia — home">
-      <img src="assets/img/logo-light.png" alt="Grateful Solutions Cambodia Co., Ltd" loading="lazy">
-    </a>
-    <p class="footer__copy">© 2026 Grateful Solutions (Cambodia) Co., Ltd.</p>
   </div>
 </footer>
 
+</div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script>
-  (function () {
-    if (!window.gsap || !window.ScrollTrigger) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Lenis: eased smooth scrolling on top of native scroll (wheel/trackpad; touch stays native),
-    // driven by GSAP's ticker so ScrollTrigger animations stay in sync
-    const lenis = window.Lenis ? new Lenis({ duration: 1.2 }) : null;
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-
-      // In-page links glide instead of jumping, stopping just below the fixed nav
-      document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href^="#"]');
-        if (!link) return;
-        const id = link.getAttribute('href');
-        const target = id === '#' ? 0 : document.querySelector(id);
-        if (target === null) return;
-        e.preventDefault();
-        lenis.scrollTo(target, { offset: target === 0 ? 0 : -document.getElementById('nav').offsetHeight });
-      });
-    }
-
-    const cyan = getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim();
-
-    // Scroll-scrubbed text fill: each word flashes cyan (unless flash is false), then settles to its final colour
-    function fillText(el, finalColor, flash = true) {
-      const words = [];
-      (function split(node) {
-        [...node.childNodes].forEach((child) => {
-          if (child.nodeType === 3) {
-            const frag = document.createDocumentFragment();
-            child.textContent.split(/(\s+)/).forEach((part) => {
-              if (!part) return;
-              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
-              const w = document.createElement('span');
-              w.className = 'w';
-              w.textContent = part;
-              frag.appendChild(w);
-              words.push(w);
-            });
-            child.replaceWith(frag);
-          } else if (child.nodeType === 1) {
-            split(child);
-          }
-        });
-      })(el);
-      el.classList.add('is-split');
-
-      const fill = gsap.timeline({
-        scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 45%', scrub: 0.6 }
-      });
-      words.forEach((w, i) => {
-        if (!flash) { fill.to(w, { color: finalColor(w), duration: 0.5, ease: 'none' }, i * 0.1); return; }
-        fill.to(w, { color: cyan, duration: 0.25, ease: 'none' }, i * 0.1)
-            .to(w, { color: finalColor(w), duration: 0.25, ease: 'none' }, i * 0.1 + 0.25);
-      });
-    }
-
-    fillText(document.getElementById('about-text'), (w) => (w.closest('.accent') ? cyan : '#0A0A0A'));
-
-    // Parallax: image drifts inside its frame; frames move at different speeds
-    // Frames 2 and 4 "fly": they rise a fraction of the viewport height faster than the page scrolls
-    const frameDrift = [
-      () => -30,
-      () => -window.innerHeight * 0.4,
-      () => -60,
-      () => -window.innerHeight * 0.6,
-    ];
-    gsap.utils.toArray('.about__frame').forEach((frame, i) => {
-      const img = frame.querySelector('img');
-      gsap.fromTo(img, { yPercent: -16 }, {
-        yPercent: 0, ease: 'none',
-        scrollTrigger: { trigger: frame, start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    });
-
-    // Phones (one column): the 2nd and 4th photos lap over the photo above (set in CSS);
-    // here they slide up the last few pixels into that spot as they scroll in.
-    gsap.matchMedia().add('(max-width: 640px)', () => {
-      gsap.utils.toArray('.about__frame--b, .about__frame--d').forEach((frame) => {
-        gsap.fromTo(frame, { y: 40 }, {
-          y: 0, ease: 'none',
-          scrollTrigger: { trigger: frame, start: 'top bottom', end: 'top 45%', scrub: true }
-        });
-      });
-    });
-
-    // Wider screens: the full flying drift across the side-by-side collage
-    gsap.matchMedia().add('(min-width: 641px)', () => {
-      gsap.utils.toArray('.about__frame').forEach((frame, i) => {
-        gsap.to(frame, {
-          y: frameDrift[i], ease: 'none',
-          scrollTrigger: {
-            trigger: '.about__media', start: 'top bottom', end: 'bottom top',
-            scrub: true, invalidateOnRefresh: true,
-          }
-        });
-      });
-    });
-
-    // Hero: photo drifts down and zooms in slightly as the hero scrolls away
-    gsap.to('.hero__parallax', {
-      yPercent: 18, scale: 1.12, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-    });
-
-    // Clearing customs: photo drifts and zooms inside its panel (scale always covers the drift)
-    gsap.fromTo('.clear__media-img', { yPercent: -6, scale: 1.12 }, {
-      yPercent: 6, scale: 1.25, ease: 'none',
-      scrollTrigger: { trigger: '.clear__media', start: 'top bottom', end: 'bottom top', scrub: true }
-    });
-
-    // Promise: frame grows from inset card to full screen as the section scrolls up
-    const promiseFrame = document.getElementById('promise-frame');
-    gsap.fromTo(promiseFrame,
-      { top: '3.2vw', right: '3.4vw', bottom: '3.2vw', left: '3.4vw' },
-      { top: 0, right: 0, bottom: 0, left: 0, ease: 'none',
-        scrollTrigger: { trigger: '.promise', start: 'top bottom', end: 'top top', scrub: true } });
-
-    fillText(document.getElementById('promise-text'), () => '#FBF6EE', false);
-  })();
-</script>
-
+<!-- page modules register on window.GSModules; app.js runs them and handles page transitions -->
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/page.js"></script>
+<script src="assets/js/titles.js"></script>
+<script src="assets/js/intro.js"></script>
 <script src="assets/js/faq.js"></script>
+<script src="assets/js/quote.js"></script>
+<script src="assets/js/home.js"></script>
+<script src="assets/js/ports.js"></script>
+<script src="assets/js/fleet.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

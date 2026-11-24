@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
+  <!-- ring with its hole -->
+  <path fill-rule="evenodd" d="M208 118a48 48 0 1 0 96 0a48 48 0 1 0-96 0ZM239 118a17 17 0 1 0 34 0a17 17 0 1 0-34 0Z"/>
+  <!-- stock (crossbar) with round ends -->
+  <rect x="177" y="205" width="158" height="14"/>
+  <circle cx="177" cy="212" r="20"/>
+  <circle cx="335" cy="212" r="20"/>
+  <!-- shank, widening toward the crown -->
+  <path d="M240 150h32l14 260h-60Z"/>
+  <!-- arms -->
+  <path d="M106 295A150 145 0 0 0 406 295H364A108 92 0 0 1 148 295Z"/>
+  <!-- flukes (arrowheads), corners softened by a matching stroke -->
+  <path d="M127 238L95 292h64ZM385 238L353 292h64Z" stroke="#000" stroke-width="14" stroke-linejoin="round"/>
+</svg>

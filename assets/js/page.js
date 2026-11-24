@@ -1,41 +1,15 @@
-// Shared behaviour for subpages: Lenis smooth scroll, gliding in-page links, image parallax.
-(function () {
-  if (!window.gsap) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+// Shared subpage effects: scroll-filled statements, image parallax and the stacking step cards.
+// Runs as a module (see app.js): once on load, then again for each page a transition brings in.
+// Smooth scroll and in-page link gliding live in app.js.
+(window.GSModules = window.GSModules || []).push({
+  name: 'page',
+  init(container, api) {
+    if (!window.gsap || !window.ScrollTrigger || api.reduce) return;
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Smooth scroll, driven by GSAP's ticker so scroll animations stay in sync
-  if (window.Lenis) {
-    const lenis = new Lenis({ duration: 1.2 });
-    if (window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-
-    // Same-page links glide instead of jumping, stopping just below the fixed nav
-    const nav = document.getElementById('nav');
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href^="#"]');
-      if (!link) return;
-      const id = link.getAttribute('href');
-      const target = id === '#' ? 0 : document.querySelector(id);
-      if (target === null) return;
-      e.preventDefault();
-      lenis.scrollTo(target, { offset: target === 0 ? 0 : -(nav ? nav.offsetHeight : 0) });
-    });
-
-    // Arriving from another page with a #hash: glide to it once the layout has settled
-    if (location.hash && location.hash.length > 1) {
-      const target = document.querySelector(location.hash);
-      if (target) window.addEventListener('load', () => {
-        lenis.scrollTo(target, { offset: -(nav ? nav.offsetHeight : 0), immediate: true });
-      });
-    }
-  }
-
-  // Scroll-scrubbed text fill: words start ghosted (CSS) and darken one by one as the text scrolls up
-  if (window.ScrollTrigger) {
+    // Scroll-scrubbed text fill: words start ghosted (CSS) and darken one by one as the text scrolls up
     const cyan = getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim();
-    document.querySelectorAll('[data-fill]').forEach((el) => {
+    container.querySelectorAll('[data-fill]').forEach((el) => {
       const words = [];
       (function split(node) {
         [...node.childNodes].forEach((child) => {
@@ -68,25 +42,21 @@
             .to(w, { color, duration: 0.25, ease: 'none' }, i * 0.1 + 0.25);
       });
     });
-  }
 
-  // Photos drift inside their frames while scrolling (frames clip the overflow)
-  if (window.ScrollTrigger) {
-    document.querySelectorAll('[data-parallax] img').forEach((img) => {
+    // Photos drift inside their frames while scrolling (frames clip the overflow)
+    container.querySelectorAll('[data-parallax] img').forEach((img) => {
       gsap.fromTo(img, { yPercent: -6 }, {
         yPercent: 6, ease: 'none',
         scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
       });
     });
-  }
 
-  // Stacking step cards: each card pins as it reaches the top (10px lower than the one before),
-  // and every card except the last tilts back and shrinks as the next ones slide over it.
-  if (window.ScrollTrigger) {
+    // Stacking step cards: each card pins as it reaches the top (10px lower than the one before),
+    // and every card except the last tilts back and shrinks as the next ones slide over it.
     const nav = document.getElementById('nav');
     const topOffset = () => (nav ? nav.offsetHeight : 0) + 20;   // stop just below the fixed menu bar
 
-    document.querySelectorAll('.steps-stack').forEach((stack) => {
+    container.querySelectorAll('.steps-stack').forEach((stack) => {
       const wrappers = gsap.utils.toArray(stack.querySelectorAll('.step-wrap'));
       const cards = gsap.utils.toArray(stack.querySelectorAll('.step-card'));
       if (wrappers.length < 2) return;
@@ -114,5 +84,5 @@
         });
       });
     });
-  }
-})();
+  },
+});
