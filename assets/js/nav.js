@@ -92,8 +92,12 @@
     if (!open) setDropdown(false);
   }
   toggle.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+  // Lenis is stopped while the phone menu is open, and a stopped Lenis cancels every touchmove —
+  // which kills swiping the service cards (and scrolling the panel). Tell Lenis to keep its hands off.
+  const navLinks = nav.querySelector('.nav__links');
+  navLinks.setAttribute('data-lenis-prevent', '');
   // Tapping a link closes the panel (matters for same-page links like Home on the home page)
-  nav.querySelector('.nav__links').addEventListener('click', (e) => {
+  navLinks.addEventListener('click', (e) => {
     if (e.target.closest('a') && nav.classList.contains('is-open')) setMenu(false);
   });
   // Rotating or resizing up to desktop: drop the phone menu state

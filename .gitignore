@@ -1,0 +1,4 @@
+# Office documents are kept locally, never deployed
+*.pptx
+*.docx
+*.pdf

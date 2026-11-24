@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Grateful Solutions Cambodia — Customs clearance & trucking</title>
 <meta name="description" content="Customs clearance through Cambodia&rsquo;s national single window, with trucking from port to factory gate.">
-<link rel="icon" href="assets/img/logo-color.png">
+<link rel="icon" href="assets/img/logo-dark.webp" type="image/webp">
 <link rel="preload" href="assets/fonts/GSCompressed-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/img/hero-deep-3200.webp" as="image" fetchpriority="high" media="(min-width: 861px)">
 <link rel="preload" href="assets/img/hero-deep-2400.webp" as="image" fetchpriority="high" media="(max-width: 860px)">
@@ -498,194 +498,247 @@
       <p class="fleet__lead">Every truck and van carrying your cargo is on our screens from the port gate to your factory: where it is, what its cameras see and whether its connection is holding.</p>
     </div>
 
-    <div class="fleet__body">
-      <!-- Tabs: fleet.js cycles them (with a progress line), and clicking or the arrow keys pick one -->
-      <div class="fleet__tabs" role="tablist" aria-label="Fleet monitoring features">
-        <button type="button" class="fleet-tab is-active" role="tab" id="fleet-tab-gps" aria-selected="true" aria-controls="fleet-console" data-view="gps">
-          <span class="fleet-tab__bar" aria-hidden="true"></span>
-          <span class="fleet-tab__num" aria-hidden="true">01</span>
-          <span class="fleet-tab__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-          </span>
-          <span class="fleet-tab__name">GPS location tracking</span>
-          <span class="fleet-tab__text"><span>Each vehicle reports its position as it drives, so we can tell you where your cargo is and when it will reach your gate.</span></span>
-        </button>
-        <button type="button" class="fleet-tab" role="tab" id="fleet-tab-cam" aria-selected="false" aria-controls="fleet-console" data-view="cam">
-          <span class="fleet-tab__bar" aria-hidden="true"></span>
-          <span class="fleet-tab__num" aria-hidden="true">02</span>
-          <span class="fleet-tab__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="14" height="11" rx="2"/><path d="m16 10.5 6-3.5v10l-6-3.5"/><circle cx="6.5" cy="10.5" r="1"/></svg>
-          </span>
-          <span class="fleet-tab__name">On-board cameras</span>
-          <span class="fleet-tab__text"><span>Cameras on board give us eyes on the road, and a record of the trip if a question ever comes up.</span></span>
-        </button>
-        <button type="button" class="fleet-tab" role="tab" id="fleet-tab-net" aria-selected="false" aria-controls="fleet-console" data-view="net">
-          <span class="fleet-tab__bar" aria-hidden="true"></span>
-          <span class="fleet-tab__num" aria-hidden="true">03</span>
-          <span class="fleet-tab__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="2"/><path d="M12 12v10M8.5 22h7M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M5.6 3.6a9 9 0 0 0 0 12.8M18.4 3.6a9 9 0 0 1 0 12.8"/></svg>
-          </span>
-          <span class="fleet-tab__name">4G network monitoring</span>
-          <span class="fleet-tab__text"><span>Every vehicle stays connected over 4G, and we watch that link so a dropped signal is noticed straight away.</span></span>
-        </button>
-      </div>
-
-      <!-- Fleet console: a schematic of each feature with illustrative data, run by fleet.js -->
-      <div class="fleet__console" id="fleet-console" role="tabpanel" aria-labelledby="fleet-tab-gps">
-        <p class="sr-only" data-fc-desc>Illustration: a truck moving along its route from the port to the factory, with its speed, distance to go and arrival time.</p>
-        <div class="fc">
-          <div class="fc__in" aria-hidden="true">
-            <div class="fc__bar">
-              <span class="fc__brand">GS Fleet</span>
-              <span class="fc__mode" data-fc-mode>01 · GPS tracking</span>
-              <span class="fc__clock"><span class="fc__live"></span>Live <time data-fc-clock>--:--:--</time></span>
-            </div>
-
-            <div class="fc__screen">
-              <!-- 01 GPS -->
-              <div class="fc-view fc-gps is-active" data-view="gps">
-                <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <linearGradient id="fc-cone" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0" stop-color="#06B6D4" stop-opacity=".5"/>
-                      <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
-                    </linearGradient>
-                    <!-- port anchor (same drawing as assets/img/anchor.svg), coloured by the <use>'s color -->
-                    <symbol id="fc-anchor" viewBox="0 0 512 512">
-                      <g fill="currentColor">
-                        <path fill-rule="evenodd" d="M208 118a48 48 0 1 0 96 0a48 48 0 1 0-96 0ZM239 118a17 17 0 1 0 34 0a17 17 0 1 0-34 0Z"/>
-                        <rect x="177" y="205" width="158" height="14"/>
-                        <circle cx="177" cy="212" r="20"/>
-                        <circle cx="335" cy="212" r="20"/>
-                        <path d="M240 150h32l14 260h-60Z"/>
-                        <path d="M106 295A150 145 0 0 0 406 295H364A108 92 0 0 1 148 295Z"/>
-                        <path d="M127 238L95 292h64ZM385 238L353 292h64Z" stroke="currentColor" stroke-width="14" stroke-linejoin="round"/>
-                      </g>
-                    </symbol>
-                    <!-- factory (same drawing as assets/img/factory.svg) -->
-                    <symbol id="fc-factory" viewBox="0 0 512 512">
-                      <g fill="currentColor">
-                        <circle cx="160" cy="70" r="20"/>
-                        <circle cx="206" cy="44" r="13"/>
-                        <rect x="104" y="104" width="56" height="200" rx="10"/>
-                        <path fill-rule="evenodd" stroke="currentColor" stroke-width="16" stroke-linejoin="round" d="M88 432V276L200 212V276L312 212V276L424 212V432ZM128 320H192V384H128ZM232 320H296V384H232ZM336 320H400V384H336Z"/>
-                      </g>
-                    </symbol>
-                  </defs>
-                  <path class="fc-water" d="M-20 384C120 364 200 402 320 372S520 330 660 362"/>
-                  <path class="fc-road fc-road--minor" d="M130 -10C150 100 104 220 176 420"/>
-                  <path class="fc-road fc-road--minor" d="M470 420C462 330 520 262 660 300"/>
-                  <path class="fc-road fc-road--minor" d="M-10 64C100 84 200 34 330 52"/>
-                  <path class="fc-road fc-road--minor" d="M360 -10C392 60 470 70 520 20"/>
-                  <path class="fc-road" d="M-10 146C120 166 262 122 382 152S562 222 660 204"/>
-                  <path class="fc-road" d="M312 -10C300 120 338 262 306 420"/>
-                  <path class="fc-road" d="M-20 326L96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92L660 70"/>
-                  <path class="fc-route fc-route--todo" d="M96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92"/>
-                  <path class="fc-route fc-route--done" data-fc-route d="M96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92"/>
-
-                  <!-- markers: the outer <g> places them, the inner one is free for CSS to scale up on phones -->
-                  <g transform="translate(96 318)"><g class="fc-mark">
-                    <use class="fc-anchor" href="#fc-anchor" x="-18" y="-50" width="36" height="36"/>
-                    <circle class="fc-place" r="5"/>
-                    <text class="fc-label" x="24" y="-28">Port</text>
-                  </g></g>
-                  <g transform="translate(548 92)"><g class="fc-mark">
-                    <circle class="fc-fence" r="36"/>
-                    <use class="fc-anchor" href="#fc-factory" x="-17" y="-18" width="34" height="34"/>
-                    <text class="fc-label fc-label--gate" y="-46" text-anchor="middle">Factory gate</text>
-                  </g></g>
-
-                  <g data-fc-truck transform="translate(268 242)"><g class="fc-mark">
-                    <g data-fc-heading>
-                      <path class="fc-truck__cone" d="M0 0L48 -18A52 52 0 0 1 48 18Z"/>
-                    </g>
-                    <circle class="fc-truck__ring" r="8"/>
-                    <circle class="fc-truck__dot" r="6"/>
-                  </g></g>
-                </svg>
-                <div class="fc-gps__tag"><span class="fc-chip">On route</span><span>Truck 07</span><span class="fc-k">Port &rarr; Factory</span></div>
-                <dl class="fc-stats">
-                  <div><dt class="fc-k">Speed</dt><dd><span data-gps="speed">52</span><small>km/h</small></dd></div>
-                  <div><dt class="fc-k">To your gate</dt><dd><span data-gps="left">21.4</span><small>km</small></dd></div>
-                  <div><dt class="fc-k">Arrival</dt><dd><span data-gps="eta">26</span><small>min</small></dd></div>
-                </dl>
+    <!-- Feature cards: on desktop each one sticks under the bar and the next slides over it (fleet.js
+         shrinks and dims the covered one). Left: a live console for the feature; right: its copy. -->
+    <div class="fleet__stack">
+      <article class="fleet-card" style="--i: 0" aria-labelledby="fleet-gps-title">
+        <div class="fleet-card__media">
+          <p class="sr-only">Illustration: a truck moving along its route from the port to the factory, with its speed, distance to go and arrival time.</p>
+          <div class="fc">
+            <div class="fc__in" aria-hidden="true">
+              <div class="fc__bar">
+                <span class="fc__brand">GS Fleet</span>
+                <span class="fc__mode">01 &middot; GPS tracking</span>
               </div>
-
-              <!-- 02 Cameras -->
-              <div class="fc-view fc-cam" data-view="cam">
-                <div class="fc-cam__main">
-                  <img class="is-on" src="assets/img/hero-deep-2400.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 01 · Road">
-                  <img src="assets/img/truck.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 02 · Side">
-                  <img src="assets/img/hero.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 03 · Rear">
-                  <img class="fc-cam__trailer" src="assets/img/truck-vertical.webp" alt="" loading="lazy" decoding="async" data-cam="Cam 04 · Trailer">
-                  <div class="fc-cam__hud">
-                    <span class="fc-cam__rec"><i></i><span data-cam-label>Cam 01 · Road</span></span>
-                    <span data-fc-stamp>----------  --:--:--</span>
-                  </div>
-                  <span class="fc-cam__reticle"></span>
-                </div>
-                <div class="fc-cam__thumbs">
-                  <div class="fc-cam__thumb is-on"><img src="assets/img/hero-deep-2400.webp" alt="" loading="lazy" decoding="async"><span>01</span></div>
-                  <div class="fc-cam__thumb"><img src="assets/img/truck.webp" alt="" loading="lazy" decoding="async"><span>02</span></div>
-                  <div class="fc-cam__thumb"><img src="assets/img/hero.webp" alt="" loading="lazy" decoding="async"><span>03</span></div>
-                  <div class="fc-cam__thumb"><img class="fc-cam__trailer" src="assets/img/truck-vertical.webp" alt="" loading="lazy" decoding="async"><span>04</span></div>
-                </div>
-              </div>
-
-              <!-- 03 4G network -->
-              <div class="fc-view fc-net" data-view="net">
-                <div class="fc-net__sig">
-                  <span class="fc-k">Truck 07 · Link</span>
-                  <div class="fc-net__meter">
-                    <span class="fc-net__gen">4G</span>
-                    <span class="fc-net__bars" data-net="bars"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span>
-                  </div>
-                  <span><span class="fc-chip">Connected</span></span>
-                </div>
-                <div class="fc-net__chart">
-                  <span class="fc-k">Signal · last 30 s</span>
-                  <div class="fc-net__plot">
-                    <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+              <div class="fc__screen">
+                  <div class="fc-view fc-gps" data-view="gps">
+                    <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
                       <defs>
-                        <linearGradient id="fc-area" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0" stop-color="#06B6D4" stop-opacity=".35"/>
+                        <linearGradient id="fc-cone" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0" stop-color="#06B6D4" stop-opacity=".5"/>
                           <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
                         </linearGradient>
+                        <!-- port anchor (same drawing as assets/img/anchor.svg), coloured by the <use>'s color -->
+                        <symbol id="fc-anchor" viewBox="0 0 512 512">
+                          <g fill="currentColor">
+                            <path fill-rule="evenodd" d="M208 118a48 48 0 1 0 96 0a48 48 0 1 0-96 0ZM239 118a17 17 0 1 0 34 0a17 17 0 1 0-34 0Z"/>
+                            <rect x="177" y="205" width="158" height="14"/>
+                            <circle cx="177" cy="212" r="20"/>
+                            <circle cx="335" cy="212" r="20"/>
+                            <path d="M240 150h32l14 260h-60Z"/>
+                            <path d="M106 295A150 145 0 0 0 406 295H364A108 92 0 0 1 148 295Z"/>
+                            <path d="M127 238L95 292h64ZM385 238L353 292h64Z" stroke="currentColor" stroke-width="14" stroke-linejoin="round"/>
+                          </g>
+                        </symbol>
+                        <!-- factory (same drawing as assets/img/factory.svg) -->
+                        <symbol id="fc-factory" viewBox="0 0 512 512">
+                          <g fill="currentColor">
+                            <circle cx="160" cy="70" r="20"/>
+                            <circle cx="206" cy="44" r="13"/>
+                            <rect x="104" y="104" width="56" height="200" rx="10"/>
+                            <path fill-rule="evenodd" stroke="currentColor" stroke-width="16" stroke-linejoin="round" d="M88 432V276L200 212V276L312 212V276L424 212V432ZM128 320H192V384H128ZM232 320H296V384H232ZM336 320H400V384H336Z"/>
+                          </g>
+                        </symbol>
                       </defs>
-                      <path class="fc-net__grid" d="M0 25H400M0 50H400M0 75H400"/>
-                      <path class="fc-net__area" data-net="area" d="M0 40L40 34L80 46L120 30L160 38L200 28L240 42L280 32L320 36L360 24L400 30L400 100L0 100Z"/>
-                      <path class="fc-net__line" data-net="line" d="M0 40L40 34L80 46L120 30L160 38L200 28L240 42L280 32L320 36L360 24L400 30"/>
+                      <path class="fc-water" d="M-20 384C120 364 200 402 320 372S520 330 660 362"/>
+                      <path class="fc-road fc-road--minor" d="M130 -10C150 100 104 220 176 420"/>
+                      <path class="fc-road fc-road--minor" d="M470 420C462 330 520 262 660 300"/>
+                      <path class="fc-road fc-road--minor" d="M-10 64C100 84 200 34 330 52"/>
+                      <path class="fc-road fc-road--minor" d="M360 -10C392 60 470 70 520 20"/>
+                      <path class="fc-road" d="M-10 146C120 166 262 122 382 152S562 222 660 204"/>
+                      <path class="fc-road" d="M312 -10C300 120 338 262 306 420"/>
+                      <path class="fc-road" d="M-20 326L96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92L660 70"/>
+                      <path class="fc-route fc-route--todo" d="M96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92"/>
+                      <path class="fc-route fc-route--done" data-fc-route d="M96 318C170 314 200 250 268 242S380 256 430 200S500 108 548 92"/>
+
+                      <!-- markers: the outer <g> places them, the inner one is free for CSS to scale up on phones -->
+                      <g transform="translate(96 318)"><g class="fc-mark">
+                        <use class="fc-anchor" href="#fc-anchor" x="-18" y="-50" width="36" height="36"/>
+                        <circle class="fc-place" r="5"/>
+                        <text class="fc-label" x="24" y="-28">Port</text>
+                      </g></g>
+                      <g transform="translate(548 92)"><g class="fc-mark">
+                        <circle class="fc-fence" r="36"/>
+                        <use class="fc-anchor" href="#fc-factory" x="-17" y="-18" width="34" height="34"/>
+                        <text class="fc-label fc-label--gate" y="-46" text-anchor="middle">Factory gate</text>
+                      </g></g>
+
+                      <g data-fc-truck transform="translate(268 242)"><g class="fc-mark">
+                        <g data-fc-heading>
+                          <path class="fc-truck__cone" d="M0 0L48 -18A52 52 0 0 1 48 18Z"/>
+                        </g>
+                        <circle class="fc-truck__ring" r="8"/>
+                        <circle class="fc-truck__dot" r="6"/>
+                      </g></g>
                     </svg>
-                    <span class="fc-net__head" data-net="head" style="--y: 30%"></span>
+                    <div class="fc-gps__tag"><span class="fc-chip">On route</span><span>Truck 07</span><span class="fc-k">Port &rarr; Factory</span></div>
+                    <dl class="fc-stats">
+                      <div><dt class="fc-k">Speed</dt><dd><span data-gps="speed">52</span><small>km/h</small></dd></div>
+                      <div><dt class="fc-k">To your gate</dt><dd><span data-gps="left">21.4</span><small>km</small></dd></div>
+                      <div><dt class="fc-k">Arrival</dt><dd><span data-gps="eta">26</span><small>min</small></dd></div>
+                    </dl>
                   </div>
-                </div>
-                <ul class="fc-net__units">
-                  <li><span>Truck 03</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></li>
-                  <li><span>Truck 07</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span></li>
-                  <li><span>Van 02</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></li>
-                  <li><span>Van 05</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i></i><i></i></span></li>
-                </ul>
-                <dl class="fc-net__stats">
-                  <div><dt class="fc-k">Signal</dt><dd><span data-net="dbm">&minus;71</span><small>dBm</small></dd></div>
-                  <div><dt class="fc-k">Latency</dt><dd><span data-net="ms">42</span><small>ms</small></dd></div>
-                  <div><dt class="fc-k">Last report</dt><dd><span data-net="ago">1</span><small>s ago</small></dd></div>
-                </dl>
+                  <span class="fc__corner fc__corner--tl"></span>
+                  <span class="fc__corner fc__corner--tr"></span>
+                  <span class="fc__corner fc__corner--bl"></span>
+                  <span class="fc__corner fc__corner--br"></span>
               </div>
-
-              <span class="fc__corner fc__corner--tl"></span>
-              <span class="fc__corner fc__corner--tr"></span>
-              <span class="fc__corner fc__corner--bl"></span>
-              <span class="fc__corner fc__corner--br"></span>
-              <span class="fc__wipe"></span>
-            </div>
-
-            <div class="fc__foot">
-              <span class="fc__note">Illustrative view</span>
-              <span data-gps="coords">11.5240&deg; N &middot; 104.8930&deg; E</span>
+              <div class="fc__foot">
+                <span class="fc__note">Illustrative view</span>
+                <span data-gps="coords">11.5240&deg; N &middot; 104.8930&deg; E</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        <div class="fleet-card__body">
+          <p class="fleet-card__meta">
+            <span class="fleet-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <span>01 / 03</span><span class="fleet-card__dot" aria-hidden="true"></span><span>Position &amp; arrival</span>
+          </p>
+          <h3 class="fleet-card__title" id="fleet-gps-title">GPS location tracking</h3>
+          <p class="fleet-card__label">Overview</p>
+          <p class="fleet-card__text">Each vehicle reports its position as it drives, so we can tell you where your cargo is and when it will reach your gate.</p>
+          <div class="fleet-card__more">
+            <p class="fleet-card__label">What you get</p>
+            <ul class="fleet-card__list">
+            <li>Where your cargo is, right now</li>
+            <li>Expected arrival at your gate</li>
+            <li>Speed and distance left on the trip</li>
+            <li>The route from port to factory</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="fleet-card" style="--i: 1" aria-labelledby="fleet-cam-title">
+        <div class="fleet-card__media">
+          <p class="sr-only">Illustration: the view from a truck's road-facing camera.</p>
+          <div class="fc fc--still">
+            <div class="fc__in" aria-hidden="true">
+              <div class="fc__bar">
+                <span class="fc__brand">GS Fleet</span>
+                <span class="fc__mode">02 &middot; On-board cameras</span>
+              </div>
+              <div class="fc__screen">
+                  <div class="fc-view fc-cam fc-cam--single" data-view="cam">
+                    <div class="fc-cam__main">
+                      <img class="is-on" src="assets/img/hero-deep-2400.webp" alt="" loading="lazy" decoding="async">
+                      <div class="fc-cam__hud">
+                        <span class="fc-cam__rec"><i></i><span>Cam 01 · Road</span></span>
+                        <span>2026-11-24&nbsp;&nbsp;09:41:26</span>
+                      </div>
+                      <span class="fc-cam__reticle"></span>
+                    </div>
+                  </div>
+                  <span class="fc__corner fc__corner--tl"></span>
+                  <span class="fc__corner fc__corner--tr"></span>
+                  <span class="fc__corner fc__corner--bl"></span>
+                  <span class="fc__corner fc__corner--br"></span>
+              </div>
+              <div class="fc__foot">
+                <span class="fc__note">Illustrative view</span>
+                <span>Truck 07 &middot; Cameras</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fleet-card__body">
+          <p class="fleet-card__meta">
+            <span class="fleet-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6.5" width="14" height="11" rx="2"/><path d="m16 10.5 6-3.5v10l-6-3.5"/><circle cx="6.5" cy="10.5" r="1"/></svg></span>
+            <span>02 / 03</span><span class="fleet-card__dot" aria-hidden="true"></span><span>Eyes on the road</span>
+          </p>
+          <h3 class="fleet-card__title" id="fleet-cam-title">On-board cameras</h3>
+          <p class="fleet-card__label">Overview</p>
+          <p class="fleet-card__text">Cameras on board give us eyes on the road, and a record of the trip if a question ever comes up.</p>
+          <div class="fleet-card__more">
+            <p class="fleet-card__label">What you get</p>
+            <ul class="fleet-card__list">
+            <li>A live view from the vehicle</li>
+            <li>A record of every trip</li>
+            <li>Answers when a question comes up</li>
+            <li>Peace of mind on long hauls</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="fleet-card" style="--i: 2" aria-labelledby="fleet-net-title">
+        <div class="fleet-card__media">
+          <p class="sr-only">Illustration: the 5G link of each vehicle, with signal strength over time and latency.</p>
+          <div class="fc fc--still">
+            <div class="fc__in" aria-hidden="true">
+              <div class="fc__bar">
+                <span class="fc__brand">GS Fleet</span>
+                <span class="fc__mode">03 &middot; 5G network</span>
+              </div>
+              <div class="fc__screen">
+                  <div class="fc-view fc-net" data-view="net">
+                    <div class="fc-net__sig">
+                      <span class="fc-k">Truck 07 · Link</span>
+                      <div class="fc-net__meter">
+                        <span class="fc-net__gen">5G</span>
+                        <span class="fc-net__bars"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span>
+                      </div>
+                      <span><span class="fc-chip">Connected</span></span>
+                    </div>
+                    <div class="fc-net__chart">
+                      <span class="fc-k">Signal · last 30 s</span>
+                      <div class="fc-net__plot">
+                        <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                          <defs>
+                            <linearGradient id="fc-area" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0" stop-color="#06B6D4" stop-opacity=".35"/>
+                              <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
+                            </linearGradient>
+                          </defs>
+                          <path class="fc-net__grid" d="M0 25H400M0 50H400M0 75H400"/>
+                          <path class="fc-net__area" d="M0 30L16.7 26L33.3 32L50 28L66.7 24L83.3 29L100 35L116.7 31L133.3 27L150 22L166.7 26L183.3 58L200 40L216.7 30L233.3 27L250 33L266.7 29L283.3 24L300 20L316.7 25L333.3 28L350 22L366.7 19L383.3 24L400 21L400 100L0 100Z"/>
+                          <path class="fc-net__line" d="M0 30L16.7 26L33.3 32L50 28L66.7 24L83.3 29L100 35L116.7 31L133.3 27L150 22L166.7 26L183.3 58L200 40L216.7 30L233.3 27L250 33L266.7 29L283.3 24L300 20L316.7 25L333.3 28L350 22L366.7 19L383.3 24L400 21"/>
+                        </svg>
+                        <span class="fc-net__head" style="--y: 21%"></span>
+                      </div>
+                    </div>
+                    <ul class="fc-net__units">
+                      <li><span>Truck 03</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></li>
+                      <li><span>Truck 07</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span></li>
+                      <li><span>Van 02</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></li>
+                      <li><span>Van 05</span><span class="fc-net__mini"><i class="is-on"></i><i class="is-on"></i><i></i><i></i></span></li>
+                    </ul>
+                    <dl class="fc-net__stats">
+                      <div><dt class="fc-k">Signal</dt><dd><span>&minus;68</span><small>dBm</small></dd></div>
+                      <div><dt class="fc-k">Latency</dt><dd><span>39</span><small>ms</small></dd></div>
+                      <div><dt class="fc-k">Last report</dt><dd><span>1</span><small>s ago</small></dd></div>
+                    </dl>
+                  </div>
+                  <span class="fc__corner fc__corner--tl"></span>
+                  <span class="fc__corner fc__corner--tr"></span>
+                  <span class="fc__corner fc__corner--bl"></span>
+                  <span class="fc__corner fc__corner--br"></span>
+              </div>
+              <div class="fc__foot">
+                <span class="fc__note">Illustrative view</span>
+                <span>Fleet &middot; 5G link</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fleet-card__body">
+          <p class="fleet-card__meta">
+            <span class="fleet-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="2"/><path d="M12 12v10M8.5 22h7M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M5.6 3.6a9 9 0 0 0 0 12.8M18.4 3.6a9 9 0 0 1 0 12.8"/></svg></span>
+            <span>03 / 03</span><span class="fleet-card__dot" aria-hidden="true"></span><span>Always connected</span>
+          </p>
+          <h3 class="fleet-card__title" id="fleet-net-title">5G network monitoring</h3>
+          <p class="fleet-card__label">Overview</p>
+          <p class="fleet-card__text">Every vehicle stays connected over 5G, and we watch that link so a dropped signal is noticed straight away.</p>
+          <div class="fleet-card__more">
+            <p class="fleet-card__label">What you get</p>
+            <ul class="fleet-card__list">
+            <li>Every vehicle online over 5G</li>
+            <li>The link watched around the clock</li>
+            <li>Dropped signals caught straight away</li>
+            <li>Tracking and cameras that keep reporting</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
