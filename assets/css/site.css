@@ -2474,7 +2474,6 @@ html.is-transitioning { overflow-x: hidden; }
   border-radius: var(--r);
   overflow: hidden;
   background: var(--fl-panel);
-  box-shadow: inset 0 0 0 1px var(--fl-rule);
 }
 .fc__bar, .fc__foot {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
