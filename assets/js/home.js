@@ -51,7 +51,7 @@
     const stage = container.querySelector('#fields-stage');
     const fields = gsap.utils.toArray('.fields__item', stage);
     stage.classList.add('is-stacked');
-    // Video is driven frame by frame from the scroll, never played on its own
+    // On desktop the video is driven frame by frame from the scroll; on phones it plays and loops
     const fieldsVideo = container.querySelector('#fields-video');
     function seekVideo(p) {
       const d = fieldsVideo.duration;
@@ -63,8 +63,7 @@
     fieldsVideo.play().then(() => fieldsVideo.pause()).catch(() => {});
     fieldsVideo.addEventListener('loadedmetadata', () => ScrollTrigger.refresh(), { once: true });
 
-    // Desktop pins just the photo panel, centred. Phones pin the label + title together with it,
-    // so "What we do / One field, start to finish." stays on screen until the last service.
+    // Desktop only: pins the photo panel and scrubs the services with the scroll
     function buildFields(pinEl, start) {
       gsap.set(fields.slice(1), { autoAlpha: 0, yPercent: 12 });
       const fieldsTl = gsap.timeline({
@@ -108,7 +107,38 @@
       buildFields(stage, 'top top');
       return () => { stage.classList.remove('is-cinema'); section.classList.remove('fields--cinema'); };
     });
-    fieldsMM.add('(max-width: 640px)', () => buildFields(stage.closest('.fields__pin'), 'top top'));
+    // Phones: no pin. The video plays on its own and loops, the services cycle on a timer,
+    // and both run only while the panel is on screen, so the page scrolls straight past it.
+    fieldsMM.add('(max-width: 640px)', () => {
+      const HOLD = 3.6;                                  // seconds each service stays up
+      gsap.set(fields.slice(1), { autoAlpha: 0, yPercent: 12 });
+      fieldsVideo.loop = true;
+      let cur = 0;
+      const bar = gsap.fromTo('#fields-bar', { width: '0%' },
+        { width: '100%', ease: 'none', duration: HOLD * fields.length, repeat: -1, paused: true });
+      function advance() {
+        const next = (cur + 1) % fields.length;
+        gsap.to(fields[cur], { autoAlpha: 0, yPercent: -12, ease: 'power1.in', duration: 0.45 });
+        gsap.fromTo(fields[next], { autoAlpha: 0, yPercent: 12 },
+          { autoAlpha: 1, yPercent: 0, ease: 'power1.out', duration: 0.45, delay: 0.4 });
+        cur = next;
+        timer.restart(true);
+      }
+      const timer = gsap.delayedCall(HOLD, advance).pause();
+      const st = ScrollTrigger.create({
+        trigger: stage, start: 'top bottom', end: 'bottom top',
+        onToggle: (self) => {
+          if (self.isActive) { timer.resume(); bar.resume(); fieldsVideo.play().catch(() => {}); }
+          else { timer.pause(); bar.pause(); fieldsVideo.pause(); }
+        },
+      });
+      return () => {
+        st.kill(); timer.kill(); bar.kill();
+        gsap.set('#fields-bar', { clearProps: 'width' });
+        fieldsVideo.pause(); fieldsVideo.loop = false;
+        gsap.set(fields, { clearProps: 'opacity,visibility,transform' });
+      };
+    });
 
     // Hero: photo drifts down and zooms in slightly as the hero scrolls away
     gsap.to('.hero__parallax', {
